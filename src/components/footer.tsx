@@ -6,6 +6,7 @@ import {
   footerServiceLinks,
   socialLinks,
 } from "@/lib/constants";
+import { LicenseDetails } from "@/components/license-details";
 
 export function Footer() {
   return (
@@ -105,23 +106,26 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 sm:flex-row">
-          <p className="text-xs text-white/40">
-            © 2026 Aureon Relocations. All rights reserved.
-          </p>
-          <div className="flex gap-6">
-            <Link
-              href="#"
-              className="text-xs text-white/40 transition-colors hover:text-white/70"
-            >
-              Privacy Policy
-            </Link>
-            <Link
-              href="#"
-              className="text-xs text-white/40 transition-colors hover:text-white/70"
-            >
-              Terms of Service
-            </Link>
+        <div className="mt-16 border-t border-white/10 pt-8">
+          <LicenseDetails variant="compact" className="mb-6" />
+          <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
+            <p className="text-xs text-white/40">
+              © 2026 Aureon Relocations. All rights reserved.
+            </p>
+            <div className="flex gap-6">
+              <Link
+                href="#"
+                className="text-xs text-white/40 transition-colors hover:text-white/70"
+              >
+                Privacy Policy
+              </Link>
+              <Link
+                href="#"
+                className="text-xs text-white/40 transition-colors hover:text-white/70"
+              >
+                Terms of Service
+              </Link>
+            </div>
           </div>
         </div>
       </div>

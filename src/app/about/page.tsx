@@ -3,6 +3,7 @@ import { aboutSections, images, principles } from "@/lib/constants";
 import { createPageMetadata } from "@/lib/metadata";
 import { Button } from "@/components/button";
 import { FadeIn } from "@/components/fade-in";
+import { LicenseDetails } from "@/components/license-details";
 import { SectionHeading } from "@/components/section-heading";
 
 export const metadata = createPageMetadata({
@@ -102,6 +103,22 @@ export default function AboutPage() {
               </FadeIn>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="bg-surface py-24 lg:py-32" aria-label="Company registration">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <FadeIn>
+            <SectionHeading
+              title="Licensed & Registered."
+              description="Aureon operates as a licensed Abu Dhabi trader, registered with the relevant authorities in the United Arab Emirates."
+              align="center"
+              className="mx-auto mb-12 lg:mb-16"
+            />
+          </FadeIn>
+          <FadeIn delay={0.1}>
+            <LicenseDetails variant="full" showLogos />
+          </FadeIn>
         </div>
       </section>
 

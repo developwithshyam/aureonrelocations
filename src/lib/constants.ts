@@ -354,7 +354,29 @@ export const testimonials = [
 export const contactInfo = {
   email: "info@aureonrelocations.ae",
   phones: ["+971 561338182", "+971 555509390"],
-  location: "[Company Location]",
+  location: "Abu Dhabi, UAE",
+} as const;
+
+export const companyLicense = {
+  tradeName: "Aureon Furniture Transportation - L.L.C",
+  licenceType: "Commercial — Abu Dhabi Trader",
+  licenceNumber: "CN-6736478",
+  unifiedLicenceNumber: "501-2026-200079818",
+  unifiedRegistrationNumber: "101-2026-200123617",
+  legalForm: "Limited Liability Company",
+  establishmentDate: "01/09/2026",
+  expiryDate: "31/08/2027",
+  emirate: "Abu Dhabi, UAE",
+  certificationLogos: [
+    {
+      src: "/images/adra.png",
+      alt: "Abu Dhabi Registration Authority (ADRA)",
+    },
+    {
+      src: "/images/deparmentofeconomicdevlopment.png",
+      alt: "Department of Economic Development — Abu Dhabi",
+    },
+  ],
 } as const;
 
 const googleAppsScriptDeploymentId =
