@@ -1,27 +1,38 @@
 import Image from "next/image";
-import { images } from "@/lib/constants";
+import { images, services } from "@/lib/constants";
 import { createPageMetadata } from "@/lib/metadata";
+import { servicesSeo } from "@/lib/seo-content";
 import { FadeIn } from "@/components/fade-in";
+import {
+  FaqPageJsonLd,
+  ServicesItemListJsonLd,
+} from "@/components/structured-data";
 import {
   ServiceDetailBlocks,
   ServicesNav,
 } from "@/components/services-page-content";
 
 export const metadata = createPageMetadata({
-  title: "Relocation Services | Aureon Relocations",
-  description:
-    "Explore Aureon Relocations services — residential, commercial, corporate, international relocation, packing, furniture installation, and storage solutions.",
+  title: servicesSeo.title,
+  description: servicesSeo.description,
   path: "/services",
 });
+
+const residentialFaqs =
+  services.find((service) => service.id === "residential-relocation")?.faqs ??
+  [];
 
 export default function ServicesPage() {
   return (
     <>
+      <ServicesItemListJsonLd />
+      {residentialFaqs.length > 0 && <FaqPageJsonLd faqs={residentialFaqs} />}
+
       <section className="relative flex min-h-[60vh] items-end overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src={images.servicesHero}
-            alt="Professional relocation services in a modern setting"
+            alt="Moving services in Abu Dhabi — Aureon Relocations"
             fill
             priority
             sizes="100vw"

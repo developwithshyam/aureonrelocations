@@ -1,26 +1,31 @@
 import Image from "next/image";
 import { images } from "@/lib/constants";
 import { createPageMetadata } from "@/lib/metadata";
+import { contactSeo } from "@/lib/seo-content";
 import { ContactForm } from "@/components/contact-form";
 import { ContactInfoCard } from "@/components/contact-info-card";
+import { FaqSection } from "@/components/faq-section";
 import { FadeIn } from "@/components/fade-in";
 import { LicenseDetails } from "@/components/license-details";
+import { FaqPageJsonLd } from "@/components/structured-data";
+import { siteFaqs } from "@/lib/constants";
 
 export const metadata = createPageMetadata({
-  title: "Contact Aureon Relocations | Get a Free Quote",
-  description:
-    "Contact Aureon Relocations to request a free quote. Tell us about your move and we'll help you plan the next step.",
+  title: contactSeo.title,
+  description: contactSeo.description,
   path: "/contact",
 });
 
 export default function ContactPage() {
   return (
     <>
+      <FaqPageJsonLd faqs={siteFaqs} />
+
       <section className="relative flex min-h-[50vh] items-end overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src={images.contactHero}
-            alt="Contact Aureon Relocations for your moving needs"
+            alt="Contact movers near me in Abu Dhabi — Aureon Relocations"
             fill
             priority
             sizes="100vw"
@@ -30,14 +35,9 @@ export default function ContactPage() {
         </div>
         <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-16 pt-32 lg:px-8 lg:pb-20">
           <FadeIn>
-            <h1 className="max-w-2xl text-4xl font-light leading-tight tracking-tight text-white sm:text-5xl md:text-6xl">
-              <span className="block">Let&apos;s Get</span>
-              <span className="block">You Moving.</span>
+            <h1 className="max-w-3xl text-4xl font-light leading-tight tracking-tight text-white sm:text-5xl md:text-6xl">
+              {contactSeo.h1}
             </h1>
-            <p className="mt-6 max-w-lg text-base leading-relaxed text-white/75 sm:text-lg">
-              Tell us a little about your move and we&apos;ll help you plan the
-              next step.
-            </p>
           </FadeIn>
         </div>
       </section>
@@ -59,6 +59,8 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
+      <FaqSection faqs={siteFaqs} className="py-24 lg:py-32" />
     </>
   );
 }

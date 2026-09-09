@@ -7,6 +7,7 @@ import { services } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/button";
 import { FadeIn } from "@/components/fade-in";
+import { ServiceFaqList } from "@/components/service-faq";
 
 export function ServicesNav() {
   const [activeId, setActiveId] = useState(services[0]?.id ?? "");
@@ -83,7 +84,7 @@ export function ServiceDetailBlocks() {
                 <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
                   <Image
                     src={service.image}
-                    alt={service.title}
+                    alt={service.imageAlt}
                     fill
                     sizes="(max-width: 1024px) 100vw, 50vw"
                     className="object-cover"
@@ -105,9 +106,20 @@ export function ServiceDetailBlocks() {
                   <p className="mt-4 text-base leading-relaxed text-text-secondary">
                     {service.description}
                   </p>
-                  <p className="mt-4 text-base leading-relaxed text-text-secondary">
-                    {service.longDescription}
-                  </p>
+                  <div className="mt-4 space-y-4">
+                    {service.longDescription.split("\n\n").map((paragraph) => (
+                      <p
+                        key={paragraph.slice(0, 48)}
+                        className="text-base leading-relaxed text-text-secondary"
+                      >
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
+
+                  {service.faqs && service.faqs.length > 0 && (
+                    <ServiceFaqList faqs={service.faqs} />
+                  )}
 
                   <div className="mt-8">
                     <h3 className="text-xs font-semibold tracking-widest text-primary-dark uppercase">

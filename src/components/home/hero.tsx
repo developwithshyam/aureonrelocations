@@ -2,14 +2,15 @@
 
 import Image from "next/image";
 import { motion, useReducedMotion } from "motion/react";
-import { Button } from "@/components/button";
+import { QuoteForm } from "@/components/quote-form";
 import { images } from "@/lib/constants";
+import { homeSeo } from "@/lib/seo-content";
 
 export function Hero() {
   const prefersReducedMotion = useReducedMotion();
 
   return (
-    <section className="relative flex min-h-screen items-end overflow-hidden">
+    <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
       <div className="absolute inset-0">
         <div
           className={
@@ -17,8 +18,8 @@ export function Hero() {
           }
         >
           <Image
-            src={images.hero}
-            alt="Professional movers carefully handling furniture in a modern home interior"
+            src={images.hero.src}
+            alt={images.hero.alt}
             fill
             priority
             sizes="100vw"
@@ -28,7 +29,7 @@ export function Hero() {
         <div className="absolute inset-0 bg-primary-dark/55" />
       </div>
 
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-32 pt-32 lg:px-8 lg:pb-40">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-32 text-center lg:px-8">
         <motion.p
           initial={prefersReducedMotion ? false : { opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -42,17 +43,16 @@ export function Hero() {
           initial={prefersReducedMotion ? false : { opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.35 }}
-          className="max-w-4xl text-4xl font-light leading-[1.1] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl"
+          className="mx-auto max-w-4xl text-4xl font-light leading-[1.1] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl"
         >
-          <span className="block">Your Move.</span>
-          <span className="block">Handled Beautifully.</span>
+          {homeSeo.h1}
         </motion.h1>
 
         <motion.p
           initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-6 max-w-xl text-base leading-relaxed text-white/75 sm:text-lg"
+          className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-white/75 sm:text-lg"
         >
           Professional relocation solutions designed around your home, your
           business, and your peace of mind.
@@ -62,14 +62,9 @@ export function Hero() {
           initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.65 }}
-          className="mt-10 flex flex-wrap gap-4"
+          className="mx-auto mt-10 w-full max-w-4xl text-left"
         >
-          <Button href="/contact" variant="primary">
-            Get a Free Quote
-          </Button>
-          <Button href="/services" variant="outline">
-            Explore Our Services
-          </Button>
+          <QuoteForm />
         </motion.div>
       </div>
     </section>
