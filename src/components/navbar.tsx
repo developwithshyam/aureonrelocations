@@ -1,14 +1,24 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { Button } from "@/components/button";
 import { navLinks } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
+const menuEase = [0.22, 1, 0.36, 1] as const;
+
 export function MobileMenu({ isSolid }: { isSolid: boolean }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const prefersReducedMotion = useReducedMotion();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     if (isOpen) {
@@ -29,6 +39,116 @@ export function MobileMenu({ isSolid }: { isSolid: boolean }) {
     return () => document.removeEventListener("keydown", handleEscape);
   }, []);
 
+  const menuOverlay =
+    mounted &&
+    createPortal(
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            key="mobile-menu"
+            className="fixed inset-0 z-[100] lg:hidden"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Navigation menu"
+            initial={{ opacity: prefersReducedMotion ? 1 : 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: prefersReducedMotion ? 1 : 0 }}
+            transition={{ duration: prefersReducedMotion ? 0 : 0.3 }}
+          >
+            <motion.div
+              className="absolute inset-0 bg-primary-dark/60 backdrop-blur-sm"
+              onClick={() => setIsOpen(false)}
+              aria-hidden="true"
+              initial={{ opacity: prefersReducedMotion ? 1 : 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: prefersReducedMotion ? 1 : 0 }}
+              transition={{ duration: prefersReducedMotion ? 0 : 0.3 }}
+            />
+            <motion.nav
+              className="absolute inset-y-0 right-0 flex w-full max-w-sm flex-col bg-primary-dark p-8 shadow-2xl"
+              initial={{ x: prefersReducedMotion ? 0 : "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: prefersReducedMotion ? 0 : "100%" }}
+              transition={{
+                duration: prefersReducedMotion ? 0 : 0.4,
+                ease: menuEase,
+              }}
+            >
+              <div className="mb-12 flex items-center justify-between">
+                <Link
+                  href="/"
+                  onClick={() => setIsOpen(false)}
+                  className="text-lg font-semibold tracking-[0.15em] text-white"
+                >
+                  AUREON
+                </Link>
+                <button
+                  type="button"
+                  onClick={() => setIsOpen(false)}
+                  className="flex h-10 w-10 items-center justify-center rounded-md text-white transition-colors hover:bg-white/10"
+                  aria-label="Close menu"
+                >
+                  <X className="h-5 w-5" />
+                </button>
+              </div>
+
+              <ul className="flex flex-col gap-1">
+                {navLinks.map((link, index) => (
+                  <motion.li
+                    key={link.href}
+                    initial={{
+                      opacity: prefersReducedMotion ? 1 : 0,
+                      y: prefersReducedMotion ? 0 : 12,
+                    }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                      duration: prefersReducedMotion ? 0 : 0.3,
+                      delay: prefersReducedMotion ? 0 : 0.15 + index * 0.06,
+                      ease: menuEase,
+                    }}
+                  >
+                    <Link
+                      href={link.href}
+                      onClick={() => setIsOpen(false)}
+                      className="block rounded-md px-2 py-4 text-lg font-light text-white/80 transition-colors hover:text-white"
+                    >
+                      {link.label}
+                    </Link>
+                  </motion.li>
+                ))}
+              </ul>
+
+              <motion.div
+                className="mt-auto pt-8"
+                initial={{
+                  opacity: prefersReducedMotion ? 1 : 0,
+                  y: prefersReducedMotion ? 0 : 12,
+                }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: prefersReducedMotion ? 0 : 0.3,
+                  delay: prefersReducedMotion
+                    ? 0
+                    : 0.15 + navLinks.length * 0.06 + 0.04,
+                  ease: menuEase,
+                }}
+              >
+                <Button
+                  href="/contact"
+                  variant="primary"
+                  className="w-full"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Get a Quote
+                </Button>
+              </motion.div>
+            </motion.nav>
+          </motion.div>
+        )}
+      </AnimatePresence>,
+      document.body,
+    );
+
   return (
     <>
       <button
@@ -46,64 +166,7 @@ export function MobileMenu({ isSolid }: { isSolid: boolean }) {
         <Menu className="h-5 w-5" />
       </button>
 
-      {isOpen && (
-        <div
-          className="fixed inset-0 z-50 lg:hidden"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Navigation menu"
-        >
-          <div
-            className="absolute inset-0 bg-primary-dark/60 backdrop-blur-sm"
-            onClick={() => setIsOpen(false)}
-            aria-hidden="true"
-          />
-          <nav className="absolute inset-y-0 right-0 flex w-full max-w-sm flex-col bg-primary-dark p-8 shadow-2xl">
-            <div className="mb-12 flex items-center justify-between">
-              <Link
-                href="/"
-                onClick={() => setIsOpen(false)}
-                className="text-lg font-semibold tracking-[0.15em] text-white"
-              >
-                AUREON
-              </Link>
-              <button
-                type="button"
-                onClick={() => setIsOpen(false)}
-                className="flex h-10 w-10 items-center justify-center rounded-md text-white transition-colors hover:bg-white/10"
-                aria-label="Close menu"
-              >
-                <X className="h-5 w-5" />
-              </button>
-            </div>
-
-            <ul className="flex flex-col gap-1">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    onClick={() => setIsOpen(false)}
-                    className="block rounded-md px-2 py-4 text-lg font-light text-white/80 transition-colors hover:text-white"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-
-            <div className="mt-auto pt-8">
-              <Button
-                href="/contact"
-                variant="primary"
-                className="w-full"
-                onClick={() => setIsOpen(false)}
-              >
-                Get a Quote
-              </Button>
-            </div>
-          </nav>
-        </div>
-      )}
+      {menuOverlay}
     </>
   );
 }
