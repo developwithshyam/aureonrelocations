@@ -7,6 +7,7 @@ import {
   socialLinks,
 } from "@/lib/constants";
 import { LicenseDetails } from "@/components/license-details";
+import { isExternalHref } from "@/lib/utils";
 
 export function Footer() {
   return (
@@ -37,12 +38,21 @@ export function Footer() {
             <ul className="space-y-3">
               {footerNavLinks.map((link) => (
                 <li key={link.href + link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-white/70 transition-colors hover:text-white"
-                  >
-                    {link.label}
-                  </Link>
+                  {isExternalHref(link.href) ? (
+                    <a
+                      href={link.href}
+                      className="text-sm text-white/70 transition-colors hover:text-white"
+                    >
+                      {link.label}
+                    </a>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      className="text-sm text-white/70 transition-colors hover:text-white"
+                    >
+                      {link.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>

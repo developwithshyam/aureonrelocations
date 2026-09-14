@@ -2,12 +2,26 @@
 
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
+import Image from "next/image";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { Button } from "@/components/button";
-import { navLinks } from "@/lib/constants";
+import { callNowHref, navLinks } from "@/lib/constants";
 import { cn } from "@/lib/utils";
+
+function BrandLogo({ className }: { className?: string }) {
+  return (
+    <Image
+      src="/images/logo.png"
+      alt="Aureon Relocations"
+      width={160}
+      height={80}
+      priority
+      className={cn("h-10 w-auto object-contain lg:h-12", className)}
+    />
+  );
+}
 
 const menuEase = [0.22, 1, 0.36, 1] as const;
 
@@ -78,9 +92,9 @@ export function MobileMenu({ isSolid }: { isSolid: boolean }) {
                 <Link
                   href="/"
                   onClick={() => setIsOpen(false)}
-                  className="text-lg font-semibold tracking-[0.15em] text-white"
+                  className="inline-flex items-center"
                 >
-                  AUREON
+                  <BrandLogo />
                 </Link>
                 <button
                   type="button"
@@ -134,12 +148,12 @@ export function MobileMenu({ isSolid }: { isSolid: boolean }) {
                 }}
               >
                 <Button
-                  href="/contact"
+                  href={callNowHref}
                   variant="primary"
                   className="w-full"
                   onClick={() => setIsOpen(false)}
                 >
-                  Get a Quote
+                  Call Now
                 </Button>
               </motion.div>
             </motion.nav>
@@ -199,14 +213,8 @@ export function Navbar({ transparent = true }: NavbarProps) {
       )}
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:h-20 lg:px-8">
-        <Link
-          href="/"
-          className={cn(
-            "text-base font-semibold tracking-[0.2em] transition-colors lg:text-lg",
-            isSolid ? "text-primary-dark" : "text-white",
-          )}
-        >
-          AUREON
+        <Link href="/" className="inline-flex items-center">
+          <BrandLogo />
         </Link>
 
         <nav
@@ -229,11 +237,11 @@ export function Navbar({ transparent = true }: NavbarProps) {
 
         <div className="flex items-center gap-4">
           <Button
-            href="/contact"
+            href={callNowHref}
             variant={isSolid ? "primary" : "outline"}
             className="hidden lg:inline-flex"
           >
-            Get a Quote
+            Call Now
           </Button>
           <MobileMenu isSolid={isSolid} />
         </div>

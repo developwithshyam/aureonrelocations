@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn, isExternalHref } from "@/lib/utils";
 
 type ButtonProps = {
   href?: string;
@@ -52,6 +52,14 @@ export function Button({
   );
 
   if (href) {
+    if (isExternalHref(href)) {
+      return (
+        <a href={href} className={classes} onClick={onClick}>
+          {content}
+        </a>
+      );
+    }
+
     return (
       <Link href={href} className={classes} onClick={onClick}>
         {content}

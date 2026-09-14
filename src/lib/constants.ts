@@ -1,3 +1,5 @@
+export const callNowHref = "tel:+971561338182" as const;
+
 export const navLinks = [
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
@@ -8,7 +10,7 @@ export const footerNavLinks = [
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Contact", href: "/contact" },
-  { label: "Get a Quote", href: "/contact" },
+  { label: "Call Now", href: callNowHref },
 ] as const;
 
 export const footerServiceLinks = [
