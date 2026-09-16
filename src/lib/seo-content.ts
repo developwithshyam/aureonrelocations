@@ -45,3 +45,21 @@ export const contactSeo = {
     "Looking for movers near me in Abu Dhabi? Affordable, transparent pricing from Aureon. Cheap movers Abu Dhabi — call +971 561338182 or request a free quote.",
   h1: "Movers Near Me in Abu Dhabi — Get a Free Quote",
 } as const;
+
+export const homeRelocationSeo = {
+  title: "Home Relocation Abu Dhabi | Residential Movers – Aureon",
+  description:
+    "Moving home in Abu Dhabi? Aureon offers caring residential relocation — apartments, villas, and house shifting with planning, packing, and delivery you can trust.",
+  h1: "Your Home Move, Handled With Heart",
+  heroSubline:
+    "Residential relocation in Abu Dhabi for families and individuals who deserve more than logistics — they deserve calm, care, and a team that listens.",
+} as const;
+
+export const corporateRelocationSeo = {
+  title: "Corporate Relocation Abu Dhabi | Employee Moves – Aureon",
+  description:
+    "Corporate and employee relocation in Abu Dhabi. Dedicated coordinators, policy-aligned planning, and structured delivery for HR and operations teams.",
+  h1: "Corporate Relocation, Built for HR and Operations",
+  heroSubline:
+    "Employee relocations and multi-site programs managed with clear timelines, accountable coordination, and minimal disruption to your business.",
+} as const;

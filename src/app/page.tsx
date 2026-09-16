@@ -1,5 +1,6 @@
 import { Hero } from "@/components/home/hero";
 import { TrustSection } from "@/components/home/trust-section";
+import { QuickQuote } from "@/components/home/quick-quote";
 import { ServicesGrid } from "@/components/home/services-grid";
 import { MovingJourney } from "@/components/home/moving-journey";
 import { WhyAureon } from "@/components/home/why-aureon";
@@ -24,12 +25,14 @@ export default function HomePage() {
     <>
       <FaqPageJsonLd faqs={siteFaqs} />
       <Hero />
+      <ResidentialCommercial />
+
       <TrustSection />
+      <QuickQuote />
       <ServicesGrid />
       <MovingJourney />
       <WhyAureon />
       <BrandStatement />
-      <ResidentialCommercial />
       <Testimonials />
       <FinalCta />
       <FaqSection faqs={siteFaqs} />

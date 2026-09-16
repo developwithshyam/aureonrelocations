@@ -73,3 +73,29 @@ body {
     animation: none;
   }
 }
+
+/* Trust cards: line-art icon glow (site accent gold) */
+.trust-neon-icon {
+  filter: drop-shadow(0 0 2px color-mix(in srgb, var(--aureon-accent) 80%, transparent))
+    drop-shadow(0 0 8px color-mix(in srgb, var(--aureon-accent) 40%, transparent));
+  transition: filter 400ms ease-out, transform 400ms ease-out;
+}
+
+.group:hover .trust-neon-icon {
+  filter: drop-shadow(0 0 3px color-mix(in srgb, var(--aureon-accent-hover) 90%, transparent))
+    drop-shadow(0 0 14px color-mix(in srgb, var(--aureon-accent) 55%, transparent));
+}
+
+.trust-ripple-lines {
+  color: var(--aureon-accent);
+  filter: drop-shadow(0 0 4px color-mix(in srgb, var(--aureon-accent) 35%, transparent));
+}
+
+.overlay-cinematic {
+  background: linear-gradient(
+    180deg,
+    rgb(17 19 21 / 0.74) 0%,
+    rgb(17 19 21 / 0.4) 46%,
+    rgb(17 19 21 / 0.86) 100%
+  );
+}

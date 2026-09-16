@@ -37,7 +37,7 @@ export function ServicesNav() {
 
   return (
     <nav
-      className="sticky top-16 z-30 border-b border-border bg-background/90 backdrop-blur-md lg:top-20"
+      className="sticky top-[4.5rem] z-30 border-b border-border bg-background/90 backdrop-blur-md lg:top-[5.5rem]"
       aria-label="Service navigation"
     >
       <div className="mx-auto max-w-7xl overflow-x-auto px-6 lg:px-8">

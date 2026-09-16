@@ -15,17 +15,17 @@ function BrandLogo({ className }: { className?: string }) {
     <Image
       src="/images/logo.png"
       alt="Aureon Relocations"
-      width={160}
-      height={80}
+      width={200}
+      height={100}
       priority
-      className={cn("h-10 w-auto object-contain lg:h-12", className)}
+      className={cn("h-14 w-auto object-contain lg:h-[4.25rem]", className)}
     />
   );
 }
 
 const menuEase = [0.22, 1, 0.36, 1] as const;
 
-export function MobileMenu({ isSolid }: { isSolid: boolean }) {
+export function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const prefersReducedMotion = useReducedMotion();
@@ -94,15 +94,15 @@ export function MobileMenu({ isSolid }: { isSolid: boolean }) {
                   onClick={() => setIsOpen(false)}
                   className="inline-flex items-center"
                 >
-                  <BrandLogo />
+                  <BrandLogo className="h-16" />
                 </Link>
                 <button
                   type="button"
                   onClick={() => setIsOpen(false)}
-                  className="flex h-10 w-10 items-center justify-center rounded-md text-white transition-colors hover:bg-white/10"
+                  className="flex h-11 w-11 items-center justify-center rounded-md text-white transition-colors hover:bg-white/10"
                   aria-label="Close menu"
                 >
-                  <X className="h-5 w-5" />
+                  <X className="h-6 w-6" />
                 </button>
               </div>
 
@@ -124,7 +124,7 @@ export function MobileMenu({ isSolid }: { isSolid: boolean }) {
                     <Link
                       href={link.href}
                       onClick={() => setIsOpen(false)}
-                      className="block rounded-md px-2 py-4 text-lg font-light text-white/80 transition-colors hover:text-white"
+                      className="block rounded-md px-2 py-4 text-xl font-light text-white/80 transition-colors hover:text-accent"
                     >
                       {link.label}
                     </Link>
@@ -150,7 +150,7 @@ export function MobileMenu({ isSolid }: { isSolid: boolean }) {
                 <Button
                   href={callNowHref}
                   variant="primary"
-                  className="w-full"
+                  className="w-full py-3.5 text-sm"
                   onClick={() => setIsOpen(false)}
                 >
                   Call Now
@@ -168,16 +168,11 @@ export function MobileMenu({ isSolid }: { isSolid: boolean }) {
       <button
         type="button"
         onClick={() => setIsOpen(true)}
-        className={cn(
-          "flex h-10 w-10 items-center justify-center rounded-md transition-colors lg:hidden",
-          isSolid
-            ? "text-primary-dark hover:bg-primary-dark/5"
-            : "text-white hover:bg-white/10",
-        )}
+        className="flex h-11 w-11 items-center justify-center rounded-md text-white transition-colors hover:bg-white/10 lg:hidden"
         aria-label="Open menu"
         aria-expanded={isOpen}
       >
-        <Menu className="h-5 w-5" />
+        <Menu className="h-6 w-6" />
       </button>
 
       {menuOverlay}
@@ -208,17 +203,17 @@ export function Navbar({ transparent = true }: NavbarProps) {
       className={cn(
         "fixed top-0 right-0 left-0 z-40 transition-all duration-500",
         isSolid
-          ? "border-b border-border/60 bg-background/90 shadow-sm backdrop-blur-md"
-          : "bg-transparent",
+          ? "border-b border-white/10 bg-primary-dark shadow-lg shadow-primary-dark/25 backdrop-blur-md"
+          : "border-b border-transparent bg-transparent",
       )}
     >
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:h-20 lg:px-8">
-        <Link href="/" className="inline-flex items-center">
+      <div className="mx-auto flex h-[4.5rem] max-w-7xl items-center justify-between px-6 lg:h-[5.5rem] lg:px-8">
+        <Link href="/" className="inline-flex shrink-0 items-center">
           <BrandLogo />
         </Link>
 
         <nav
-          className="hidden items-center gap-8 lg:flex"
+          className="hidden items-center gap-10 lg:flex"
           aria-label="Main navigation"
         >
           {navLinks.map((link) => (
@@ -226,8 +221,10 @@ export function Navbar({ transparent = true }: NavbarProps) {
               key={link.href}
               href={link.href}
               className={cn(
-                "text-sm font-medium tracking-wide transition-colors hover:opacity-70",
-                isSolid ? "text-primary-dark" : "text-white/90",
+                "text-base font-medium tracking-wide transition-colors",
+                isSolid
+                  ? "text-white/85 hover:text-accent"
+                  : "text-white/90 hover:text-white",
               )}
             >
               {link.label}
@@ -239,11 +236,11 @@ export function Navbar({ transparent = true }: NavbarProps) {
           <Button
             href={callNowHref}
             variant={isSolid ? "primary" : "outline"}
-            className="hidden lg:inline-flex"
+            className="hidden px-7 py-3.5 text-sm lg:inline-flex"
           >
             Call Now
           </Button>
-          <MobileMenu isSolid={isSolid} />
+          <MobileMenu />
         </div>
       </div>
     </header>

@@ -14,9 +14,9 @@ export const footerNavLinks = [
 ] as const;
 
 export const footerServiceLinks = [
-  { label: "Residential", href: "/services#residential-relocation" },
+  { label: "Residential", href: "/home-relocation" },
   { label: "Commercial", href: "/services#commercial-relocation" },
-  { label: "Corporate", href: "/services#corporate-relocation" },
+  { label: "Corporate", href: "/corporate-relocation" },
   { label: "International", href: "/services#international-relocation" },
   { label: "Packing", href: "/services#packing-handling" },
   { label: "Furniture", href: "/services#furniture-installation" },

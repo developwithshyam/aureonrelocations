@@ -9,9 +9,14 @@ import { LocationCombobox } from "@/components/location-combobox";
 type QuoteFormProps = {
   className?: string;
   compact?: boolean;
+  centered?: boolean;
 };
 
-export function QuoteForm({ className, compact = false }: QuoteFormProps) {
+export function QuoteForm({
+  className,
+  compact = false,
+  centered = false,
+}: QuoteFormProps) {
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
   const [moveType, setMoveType] = useState("");
@@ -47,11 +52,21 @@ export function QuoteForm({ className, compact = false }: QuoteFormProps) {
         className,
       )}
     >
-      <h2 className="mb-6 text-lg font-medium tracking-wide text-primary-dark uppercase">
+      <h2
+        className={cn(
+          "mb-6 w-full text-lg font-medium tracking-wide text-primary-dark uppercase",
+          centered ? "text-center" : "text-left",
+        )}
+      >
         Plan Your Move
       </h2>
 
-      <div className={cn("grid gap-4", compact ? "grid-cols-1" : "sm:grid-cols-3")}>
+      <div
+        className={cn(
+          "grid w-full gap-4",
+          compact ? "grid-cols-1" : "sm:grid-cols-3 sm:items-end",
+        )}
+      >
         <LocationCombobox
           id="quote-from"
           name="from"
@@ -97,7 +112,12 @@ export function QuoteForm({ className, compact = false }: QuoteFormProps) {
         </div>
       </div>
 
-      <div className="mt-6">
+      <div
+        className={cn(
+          "mt-6 w-full",
+          centered ? "flex justify-center" : "",
+        )}
+      >
         <Button type="submit" variant="primary" showArrow>
           Get My Quote
         </Button>

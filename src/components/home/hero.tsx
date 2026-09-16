@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { motion, useReducedMotion } from "motion/react";
-import { QuoteForm } from "@/components/quote-form";
 import { images } from "@/lib/constants";
 import { homeSeo } from "@/lib/seo-content";
 
@@ -10,11 +9,13 @@ export function Hero() {
   const prefersReducedMotion = useReducedMotion();
 
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
+    <section className="relative flex min-h-[85vh] items-center justify-center overflow-hidden lg:min-h-screen">
       <div className="absolute inset-0">
         <div
           className={
-            prefersReducedMotion ? "h-full w-full" : "animate-ken-burns h-full w-full"
+            prefersReducedMotion
+              ? "relative h-full w-full"
+              : "animate-ken-burns relative h-full w-full"
           }
         >
           <Image
@@ -29,7 +30,7 @@ export function Hero() {
         <div className="absolute inset-0 bg-primary-dark/55" />
       </div>
 
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-32 text-center lg:px-8">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-28 text-center lg:px-8 lg:py-32">
         <motion.p
           initial={prefersReducedMotion ? false : { opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -57,15 +58,6 @@ export function Hero() {
           Professional relocation solutions designed around your home, your
           business, and your peace of mind.
         </motion.p>
-
-        <motion.div
-          initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.65 }}
-          className="mx-auto mt-10 w-full max-w-4xl text-left"
-        >
-          <QuoteForm />
-        </motion.div>
       </div>
     </section>
   );
