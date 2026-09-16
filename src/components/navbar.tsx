@@ -10,15 +10,22 @@ import { Button } from "@/components/button";
 import { callNowHref, navLinks } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
+const LOGO_WIDTH = 1672;
+const LOGO_HEIGHT = 941;
+
 function BrandLogo({ className }: { className?: string }) {
   return (
     <Image
       src="/images/logo.png"
       alt="Aureon Relocations"
-      width={200}
-      height={100}
+      width={LOGO_WIDTH}
+      height={LOGO_HEIGHT}
       priority
-      className={cn("h-14 w-auto object-contain lg:h-[4.25rem]", className)}
+      sizes="(min-width: 1024px) 160px, 128px"
+      className={cn(
+        "h-auto w-32 object-contain mix-blend-lighten lg:w-40",
+        className,
+      )}
     />
   );
 }
@@ -94,7 +101,7 @@ export function MobileMenu() {
                   onClick={() => setIsOpen(false)}
                   className="inline-flex items-center"
                 >
-                  <BrandLogo className="h-16" />
+                  <BrandLogo className="w-36 lg:w-40" />
                 </Link>
                 <button
                   type="button"
