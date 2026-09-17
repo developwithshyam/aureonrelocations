@@ -250,10 +250,16 @@ export const homeRelocationSeo = {
 } as const;
 
 export const corporateRelocationSeo = {
-  title: "Corporate Relocation Abu Dhabi | Employee Moves – Aureon",
+  title: "Corporate & Facility Services Abu Dhabi | Aureon Relocations",
   description:
-    "Corporate and employee relocation in Abu Dhabi. Dedicated coordinators, policy-aligned planning, and structured delivery for HR and operations teams.",
-  h1: "Corporate Relocation, Built for HR and Operations",
+    "B2B relocation and furniture support in Abu Dhabi for property management, schools, facilities management, and oil & gas — licensed, contract-ready, and built for recurring work.",
+  h1: "Corporate & Facility Services",
+  heroEyebrow: "For Business",
   heroSubline:
-    "Employee relocations and multi-site programs managed with clear timelines, accountable coordination, and minimal disruption to your business.",
+    "Aureon Relocations partners with businesses, property management companies, schools, and facilities across Abu Dhabi to deliver reliable, large-scale relocation and furniture support — backed by a fully licensed operation built for recurring, contract-based work.",
+  cta: {
+    heading: "Request a Corporate Quote",
+    subheading: "Get In Touch",
+    body: "Tell us about your sites, timelines, and procurement requirements. We will respond with a structured, itemized proposal.",
+  },
 } as const;
