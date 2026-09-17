@@ -2,6 +2,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { images } from "@/lib/constants";
+import {
+  corporateRelocationImageAlt,
+  homeRelocationImageAlt,
+} from "@/lib/landing-images";
 import { FadeIn } from "@/components/fade-in";
 
 const splits = [
@@ -12,7 +16,7 @@ const splits = [
     href: "/home-relocation",
     cta: "Explore Home Moving",
     image: images.residential,
-    alt: "Elegant modern residential interior",
+    alt: homeRelocationImageAlt,
   },
   {
     title: "Corporate",
@@ -21,7 +25,7 @@ const splits = [
     href: "/corporate-relocation",
     cta: "Explore Corporate",
     image: images.services.corporate,
-    alt: "Corporate relocation and professional office environment",
+    alt: corporateRelocationImageAlt,
   },
 ] as const;
 

@@ -1,3 +1,9 @@
+import type { StaticImageData } from "next/image";
+import {
+  corporateRelocationImageAsset,
+  homeRelocationImageAsset,
+} from "@/lib/landing-images";
+
 export const callNowHref = "tel:+971561338182" as const;
 
 export const navLinks = [
@@ -24,12 +30,7 @@ export const footerServiceLinks = [
 ] as const;
 
 export const images = {
-  hero: {
-    src: "/images/hero.png",
-    alt: "Professional movers in Abu Dhabi carefully handling furniture in a modern home",
-  },
-  residential:
-    "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1200&q=80",
+  residential: homeRelocationImageAsset,
   commercial:
     "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80",
   whyAureon:
@@ -41,12 +42,10 @@ export const images = {
   contactHero:
     "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1920&q=80",
   services: {
-    residential:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
+    residential: homeRelocationImageAsset,
     commercial:
       "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80",
-    corporate:
-      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800&q=80",
+    corporate: corporateRelocationImageAsset,
     international:
       "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=800&q=80",
     packing: "/images/services/packed.png",
@@ -124,7 +123,7 @@ export type Service = {
   description: string;
   body: string[];
   features: string[];
-  image: string;
+  image: string | StaticImageData;
   imageAlt: string;
 };
 
@@ -149,7 +148,7 @@ export const services: Service[] = [
     ],
     image: images.services.residential,
     imageAlt:
-      "House shifting service in Abu Dhabi — movers packing an apartment",
+      "Aureon Relocations home moving boxes during a residential move in Abu Dhabi",
   },
   {
     id: "commercial-relocation",
@@ -191,7 +190,7 @@ export const services: Service[] = [
     ],
     image: images.services.corporate,
     imageAlt:
-      "Corporate relocation in Abu Dhabi — professional movers coordinating employee moves",
+      "Aureon Relocations corporate and office moving boxes for facility and business moves",
   },
   {
     id: "international-relocation",

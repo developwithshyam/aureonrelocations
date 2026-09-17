@@ -1,5 +1,6 @@
 import type { ServiceFaq } from "@/lib/constants";
 import { images } from "@/lib/constants";
+import { homeRelocationImageAlt } from "@/lib/landing-images";
 
 export const homeRelocationEmpathy = [
   "Moving home is rarely just about boxes and furniture. It's the place where mornings started, where photos hung on the wall, and where life quietly unfolded. When that chapter closes and a new one begins, the feelings can be mixed — excitement, nostalgia, and yes, sometimes stress.",
@@ -35,13 +36,13 @@ export const homeRelocationStories = [
     title: "Apartment living, thoughtfully moved",
     body: "Tight timelines, elevator bookings, and neighbour-friendly loading — we coordinate the details Abu Dhabi apartment moves demand, so your first night in the new place feels calm, not chaotic.",
     image: images.services.residential,
-    alt: "Apartment shifting in Abu Dhabi — movers carefully packing a home",
+    alt: homeRelocationImageAlt,
   },
   {
     title: "Villa moves with room to breathe",
     body: "Larger furniture, outdoor pieces, and multi-room packing need a plan that scales. Our villa movers map each room, protect surfaces, and keep your household flowing toward one clear delivery day.",
     image: images.residential,
-    alt: "Villa relocation — professional home movers in Abu Dhabi",
+    alt: homeRelocationImageAlt,
   },
   {
     title: "Your next chapter, supported",

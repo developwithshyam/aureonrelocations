@@ -18,6 +18,7 @@ import {
   corporatePartnerBenefits,
   corporatePartners,
 } from "@/lib/corporate-relocation-content";
+import { corporateRelocationImageAlt } from "@/lib/landing-images";
 import { corporateRelocationSeo } from "@/lib/seo-content";
 import { Button } from "@/components/button";
 import { CinematicOverlay } from "@/components/cinematic-overlay";
@@ -41,10 +42,7 @@ export function CorporateRelocationPageContent() {
         <div className="absolute inset-0">
           <Image
             src={corporateService?.image ?? images.services.corporate}
-            alt={
-              corporateService?.imageAlt ??
-              "Corporate and facility relocation services in Abu Dhabi"
-            }
+            alt={corporateService?.imageAlt ?? corporateRelocationImageAlt}
             fill
             priority
             sizes="100vw"
@@ -174,7 +172,7 @@ export function CorporateRelocationPageContent() {
             <FadeIn delay={0.1}>
               <ImageReveal
                 src={images.services.corporate}
-                alt="Corporate facility relocation and furniture support in Abu Dhabi"
+                alt={corporateRelocationImageAlt}
                 className="aspect-4/5 w-full rounded-xl"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />

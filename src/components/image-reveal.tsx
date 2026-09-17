@@ -1,11 +1,11 @@
 "use client";
 
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
 import { motion, useReducedMotion } from "motion/react";
 import { cn } from "@/lib/utils";
 
 type ImageRevealProps = {
-  src: string;
+  src: string | StaticImageData;
   alt: string;
   className?: string;
   imageClassName?: string;

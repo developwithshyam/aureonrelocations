@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion, useReducedMotion } from "motion/react";
-import { images } from "@/lib/constants";
+import { heroImageAlt, heroImageAsset } from "@/lib/hero-image";
 import { homeSeo } from "@/lib/seo-content";
 import { Button } from "@/components/button";
 
@@ -20,8 +20,8 @@ export function Hero() {
           }
         >
           <Image
-            src={images.hero.src}
-            alt={images.hero.alt}
+            src={heroImageAsset}
+            alt={heroImageAlt}
             fill
             priority
             sizes="100vw"

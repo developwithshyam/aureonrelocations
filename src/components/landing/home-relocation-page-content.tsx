@@ -17,6 +17,7 @@ import {
   homeRelocationPriorities,
   homeRelocationStories,
 } from "@/lib/home-relocation-content";
+import { homeRelocationImageAlt } from "@/lib/landing-images";
 import { homeRelocationSeo } from "@/lib/seo-content";
 import { Button } from "@/components/button";
 import { CinematicOverlay } from "@/components/cinematic-overlay";
@@ -38,7 +39,7 @@ export function HomeRelocationPageContent() {
         <div className="absolute inset-0">
           <Image
             src={images.residential}
-            alt="Residential home relocation in Abu Dhabi"
+            alt={homeRelocationImageAlt}
             fill
             priority
             sizes="100vw"
