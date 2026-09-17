@@ -7,6 +7,7 @@ type SectionHeadingProps = {
   description?: string;
   align?: "left" | "center";
   dark?: boolean;
+  fullWidth?: boolean;
   className?: string;
 };
 
@@ -17,6 +18,7 @@ export function SectionHeading({
   description,
   align = "left",
   dark = false,
+  fullWidth = false,
   className,
 }: SectionHeadingProps) {
   const titles = Array.isArray(title) ? title : [title];
@@ -24,7 +26,7 @@ export function SectionHeading({
   return (
     <div
       className={cn(
-        "max-w-3xl",
+        fullWidth ? "w-full max-w-none" : "max-w-3xl",
         align === "center" && "mx-auto text-center",
         className,
       )}

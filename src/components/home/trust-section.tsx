@@ -7,6 +7,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { trustIndicators } from "@/lib/constants";
+import { homeSeo } from "@/lib/seo-content";
 import { FadeIn } from "@/components/fade-in";
 import { SectionHeading } from "@/components/section-heading";
 import { cn } from "@/lib/utils";
@@ -28,10 +29,12 @@ export function TrustSection() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <FadeIn>
           <SectionHeading
-            title="Relocation, Without the Stress."
-            description="From careful planning and professional handling to safe transportation and final delivery, Aureon takes care of the details that make moving easier."
+            label={homeSeo.promise.eyebrow}
+            title={homeSeo.promise.heading}
+            description={homeSeo.promise.body}
             align="center"
-            className="mx-auto mb-16"
+            fullWidth
+            className="mb-16"
           />
         </FadeIn>
 

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { images } from "@/lib/constants";
 import { createPageMetadata } from "@/lib/metadata";
-import { aboutSeo, homeSeo } from "@/lib/seo-content";
+import { aboutSeo } from "@/lib/seo-content";
 import { Button } from "@/components/button";
 import { FadeIn } from "@/components/fade-in";
 import { LicenseDetails } from "@/components/license-details";
@@ -33,18 +33,28 @@ export default function AboutPage() {
               About Aureon
             </p>
             <h1 className="max-w-3xl text-4xl font-light leading-tight tracking-tight text-white sm:text-5xl md:text-6xl">
-              {aboutSeo.h1}
+              {aboutSeo.h1Lines.map((line) => (
+                <span key={line} className="block">
+                  {line}
+                </span>
+              ))}
             </h1>
+            <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/75 sm:text-lg">
+              {aboutSeo.heroSubline}
+            </p>
           </FadeIn>
         </div>
       </section>
 
-      <section className="py-24 lg:py-32">
+      <section className="py-24 lg:py-32" aria-label="Our story">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <FadeIn>
-            <div className="mx-auto max-w-3xl space-y-8">
-              <div className="space-y-6">
-                {homeSeo.intro.map((paragraph) => (
+            <div className="mx-auto max-w-3xl">
+              <h2 className="text-3xl font-light tracking-tight text-primary-dark sm:text-4xl">
+                {aboutSeo.story.heading}
+              </h2>
+              <div className="mt-6 space-y-6">
+                {aboutSeo.story.body.map((paragraph) => (
                   <p
                     key={paragraph.slice(0, 48)}
                     className="text-base leading-relaxed text-text-secondary sm:text-lg"
@@ -53,66 +63,50 @@ export default function AboutPage() {
                   </p>
                 ))}
               </div>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
 
-              <p className="text-base leading-relaxed text-text-secondary sm:text-lg">
-                {aboutSeo.intro}
-              </p>
-
-              <div>
-                <h2 className="text-2xl font-light tracking-tight text-primary-dark sm:text-3xl">
-                  {aboutSeo.whyHeading}
-                </h2>
-                <p className="mt-4 text-base leading-relaxed text-text-secondary sm:text-lg">
-                  {aboutSeo.whyBody}
-                </p>
-              </div>
-
-              <div>
-                <p className="text-base leading-relaxed text-text-secondary sm:text-lg">
-                  {aboutSeo.principlesHeading}
-                </p>
-                <ul className="mt-6 space-y-3">
-                  {aboutSeo.principles.map((principle) => (
-                    <li
-                      key={principle.title}
-                      className="flex items-start gap-3 text-base text-text-secondary"
-                    >
-                      <span className="mt-0.5 font-medium text-primary-dark">
-                        {principle.title}
-                      </span>
-                      <span>— {principle.description}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div>
-                <h2 className="text-2xl font-light tracking-tight text-primary-dark sm:text-3xl">
-                  {aboutSeo.movesHeading}
-                </h2>
-                <p className="mt-4 text-base leading-relaxed text-text-secondary sm:text-lg">
-                  {aboutSeo.movesBody}
-                </p>
+      <section className="bg-surface py-24 lg:py-32" aria-label="Our promise">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <FadeIn>
+            <div className="mx-auto max-w-3xl">
+              <h2 className="text-3xl font-light tracking-tight text-primary-dark sm:text-4xl">
+                {aboutSeo.promise.heading}
+              </h2>
+              <div className="mt-6 space-y-6">
+                {aboutSeo.promise.body.map((paragraph) => (
+                  <p
+                    key={paragraph.slice(0, 48)}
+                    className="text-base leading-relaxed text-text-secondary sm:text-lg"
+                  >
+                    {paragraph}
+                  </p>
+                ))}
               </div>
             </div>
           </FadeIn>
         </div>
       </section>
 
-      <section className="bg-surface py-24 lg:py-32" aria-label="Company registration">
+      <section className="py-24 lg:py-32" aria-label="Licensing and credentials">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <FadeIn>
-            <div className="mx-auto mb-12 max-w-2xl text-center lg:mb-16">
-              <span className="inline-block rounded-full border border-accent/30 bg-accent/10 px-4 py-1.5 text-xs font-semibold tracking-widest text-accent uppercase">
-                Licensed &amp; Insured
-              </span>
-              <h2 className="mt-6 text-3xl font-light tracking-tight text-primary-dark sm:text-4xl">
-                Licensed &amp; Registered
+            <div className="mx-auto mb-12 max-w-3xl lg:mb-16">
+              <h2 className="text-3xl font-light tracking-tight text-primary-dark sm:text-4xl">
+                {aboutSeo.licensing.heading}
               </h2>
-              <p className="mt-4 text-base leading-relaxed text-text-secondary">
-                Aureon operates as a licensed Abu Dhabi trader, registered with
-                the relevant authorities in the United Arab Emirates.
-              </p>
+              <div className="mt-6 space-y-6">
+                {aboutSeo.licensing.body.map((paragraph) => (
+                  <p
+                    key={paragraph.slice(0, 48)}
+                    className="text-base leading-relaxed text-text-secondary sm:text-lg"
+                  >
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
             </div>
           </FadeIn>
           <FadeIn delay={0.1}>
@@ -121,15 +115,62 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <section className="bg-surface py-24 lg:py-32" aria-label="Why choose Aureon">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <FadeIn>
+            <div className="mx-auto mb-12 max-w-3xl lg:mb-16">
+              <h2 className="text-3xl font-light tracking-tight text-primary-dark sm:text-4xl">
+                {aboutSeo.whyChoose.heading}
+              </h2>
+              <p className="mt-6 text-base leading-relaxed text-text-secondary sm:text-lg">
+                {aboutSeo.whyChoose.intro}
+              </p>
+            </div>
+          </FadeIn>
+          <div className="grid gap-5 sm:grid-cols-2">
+            {aboutSeo.whyChoose.points.map((point, index) => (
+              <FadeIn key={point.title} delay={index * 0.06}>
+                <div className="h-full rounded-xl bg-background p-6 shadow-[0_8px_24px_rgb(17_19_21/0.05)] sm:p-8">
+                  <h3 className="text-lg font-medium tracking-tight text-primary-dark">
+                    {point.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-text-secondary sm:text-base">
+                    {point.description}
+                  </p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 lg:py-32" aria-label="Areas we serve">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <FadeIn>
+            <div className="mx-auto max-w-3xl">
+              <h2 className="text-3xl font-light tracking-tight text-primary-dark sm:text-4xl">
+                {aboutSeo.areas.heading}
+              </h2>
+              <p className="mt-6 text-base leading-relaxed text-text-secondary sm:text-lg">
+                {aboutSeo.areas.body}
+              </p>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
       <section className="bg-primary-dark py-24 lg:py-32">
         <div className="mx-auto max-w-7xl px-6 text-center lg:px-8">
           <FadeIn>
             <h2 className="text-3xl font-light tracking-tight text-white sm:text-4xl md:text-5xl">
-              Let&apos;s Make Your Next Move Easier.
+              {aboutSeo.cta.heading}
             </h2>
+            <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/70 sm:text-lg">
+              {aboutSeo.cta.body}
+            </p>
             <div className="mt-10">
               <Button href="/contact" variant="primary">
-                Get a Free Quote
+                {aboutSeo.cta.button}
               </Button>
             </div>
           </FadeIn>

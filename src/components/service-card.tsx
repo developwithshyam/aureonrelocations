@@ -9,9 +9,18 @@ import { cn } from "@/lib/utils";
 type ServiceCardProps = {
   service: Service;
   className?: string;
+  title?: string;
+  description?: string;
 };
 
-export function ServiceCard({ service, className }: ServiceCardProps) {
+export function ServiceCard({
+  service,
+  className,
+  title,
+  description,
+}: ServiceCardProps) {
+  const displayTitle = title ?? service.title;
+  const displayDescription = description ?? service.description;
   return (
     <Link
       href={`/services#${service.id}`}
@@ -36,10 +45,10 @@ export function ServiceCard({ service, className }: ServiceCardProps) {
 
       <div className="flex flex-1 flex-col p-6 lg:p-8">
         <h3 className="text-lg font-medium tracking-wide text-primary-dark uppercase lg:text-xl">
-          {service.title}
+          {displayTitle}
         </h3>
         <p className="mt-3 flex-1 text-sm leading-relaxed text-text-secondary">
-          {service.description}
+          {displayDescription}
         </p>
         <span className="mt-6 inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-widest text-accent transition-all duration-400 group-hover:gap-2">
           Learn more

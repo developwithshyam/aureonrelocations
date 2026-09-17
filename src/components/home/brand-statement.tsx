@@ -15,7 +15,7 @@ export function BrandStatement() {
     <section className="bg-primary-dark py-24 lg:py-40" aria-label="Brand statement">
       <div className="mx-auto max-w-7xl px-6 text-center lg:px-8">
         <h2 className="sr-only">Brand statement</h2>
-        <div className="mx-auto max-w-4xl">
+        <div className="mx-auto w-full">
           {lines.map((line, index) =>
             line === "" ? (
               <div key={index} className="h-6 lg:h-10" aria-hidden="true" />

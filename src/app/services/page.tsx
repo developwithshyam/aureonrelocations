@@ -1,7 +1,9 @@
 import Image from "next/image";
-import { images, services } from "@/lib/constants";
+import { images } from "@/lib/constants";
 import { createPageMetadata } from "@/lib/metadata";
 import { servicesSeo } from "@/lib/seo-content";
+import { Button } from "@/components/button";
+import { FaqSection } from "@/components/faq-section";
 import { FadeIn } from "@/components/fade-in";
 import {
   FaqPageJsonLd,
@@ -18,15 +20,11 @@ export const metadata = createPageMetadata({
   path: "/services",
 });
 
-const residentialFaqs =
-  services.find((service) => service.id === "residential-relocation")?.faqs ??
-  [];
-
 export default function ServicesPage() {
   return (
     <>
       <ServicesItemListJsonLd />
-      {residentialFaqs.length > 0 && <FaqPageJsonLd faqs={residentialFaqs} />}
+      <FaqPageJsonLd faqs={[...servicesSeo.faqs]} />
 
       <section className="relative flex min-h-[60vh] items-end overflow-hidden">
         <div className="absolute inset-0">
@@ -42,22 +40,60 @@ export default function ServicesPage() {
         </div>
         <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-20 pt-32 lg:px-8 lg:pb-28">
           <FadeIn>
-            <h1 className="max-w-3xl text-4xl font-light leading-tight tracking-tight text-white sm:text-5xl md:text-6xl">
-              <span className="block">Relocation,</span>
-              <span className="block">Without the</span>
-              <span className="block">Complications.</span>
-            </h1>
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-white/75 sm:text-lg">
-              From homes and offices to larger corporate transitions, Aureon
-              provides professional relocation services built around care,
-              coordination, and reliability.
+            <p className="mb-4 text-xs font-semibold tracking-[0.25em] text-accent uppercase">
+              {servicesSeo.eyebrow}
             </p>
+            <h1 className="max-w-3xl text-4xl font-light leading-tight tracking-tight text-white sm:text-5xl md:text-6xl">
+              {servicesSeo.h1Lines.map((line) => (
+                <span key={line} className="block">
+                  {line}
+                </span>
+              ))}
+            </h1>
+            <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/75 sm:text-lg">
+              {servicesSeo.heroSubline}
+            </p>
+          </FadeIn>
+        </div>
+      </section>
+
+      <section className="py-16 lg:py-20" aria-label="Services overview">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <FadeIn>
+            <div className="mx-auto max-w-3xl">
+              <h2 className="text-3xl font-light tracking-tight text-primary-dark sm:text-4xl">
+                {servicesSeo.intro.heading}
+              </h2>
+              <p className="mt-6 text-base leading-relaxed text-text-secondary sm:text-lg">
+                {servicesSeo.intro.body}
+              </p>
+            </div>
           </FadeIn>
         </div>
       </section>
 
       <ServicesNav />
       <ServiceDetailBlocks />
+
+      <section className="bg-primary-dark py-24 lg:py-32">
+        <div className="mx-auto max-w-7xl px-6 text-center lg:px-8">
+          <FadeIn>
+            <h2 className="text-3xl font-light tracking-tight text-white sm:text-4xl md:text-5xl">
+              {servicesSeo.cta.heading}
+            </h2>
+            <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/70 sm:text-lg">
+              {servicesSeo.cta.body}
+            </p>
+            <div className="mt-10">
+              <Button href="/contact" variant="primary">
+                {servicesSeo.cta.button}
+              </Button>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      <FaqSection faqs={[...servicesSeo.faqs]} />
     </>
   );
 }

@@ -49,12 +49,14 @@ export const images = {
       "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800&q=80",
     international:
       "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=800&q=80",
-    packing:
-      "https://images.unsplash.com/photo-1600518464441-9154a4dea21b?w=800&q=80",
-    furniture:
-      "https://images.unsplash.com/photo-1618220179428-22790b461013?w=800&q=80",
+    packing: "/images/services/packed.png",
+    furniture: "/images/services/installation.png",
     storage:
       "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80",
+    furnitureTransport:
+      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80",
+    handyman:
+      "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80",
   },
 } as const;
 
@@ -118,12 +120,12 @@ export type Service = {
   number: string;
   title: string;
   shortTitle: string;
+  headline: string;
   description: string;
-  longDescription: string;
+  body: string[];
   features: string[];
   image: string;
   imageAlt: string;
-  faqs?: ServiceFaq[];
 };
 
 export const services: Service[] = [
@@ -132,39 +134,39 @@ export const services: Service[] = [
     number: "01",
     title: "Residential Relocation",
     shortTitle: "Residential",
+    headline: "House Shifting & Apartment Shifting in Abu Dhabi",
     description:
-      "Moving home should feel exciting — not exhausting. We handle the details so you can focus on settling into your new space.",
-    longDescription:
-      "Moving home should feel like the start of something good — not a logistics headache. Aureon provides complete house shifting services in Abu Dhabi, covering everything from studio apartments to multi-bedroom villas, with a plan built around your timeline and belongings.\n\nOur apartment shifting services in Abu Dhabi are designed for tight schedules and building move-in/move-out rules, with careful coordination so nothing is left to chance. For larger homes, our professional villa movers in Abu Dhabi handle bulkier furniture, delicate décor, and multi-room packing with the same precision, whether you're moving across the city or into a new community.\n\nEvery residential move includes planning and coordination, protective packing, secure transportation, and delivery — with optional furniture assembly and placement so your new home is ready to live in from day one.",
+      "House shifting and apartment shifting in Abu Dhabi — from studio to villa, with packing, protection, and placement when you arrive.",
+    body: [
+      "Moving home should feel exciting, not exhausting. Our residential relocation service covers house shifting and apartment shifting services in Abu Dhabi for homes of any size — from a single studio to a full villa. We handle packing, furniture protection, transport, and placement in your new space, so unpacking starts the day you arrive instead of a week later.",
+    ],
     features: [
-      "Planning & coordination",
-      "Packing & handling",
-      "Furniture protection",
-      "Transportation",
-      "Delivery",
-      "Optional assembly / placement",
+      "Packing materials & labor",
+      "Furniture protection & wrapping",
+      "Loading, transport & unloading",
+      "Placement in new home",
+      "Optional handyman assembly",
     ],
     image: images.services.residential,
     imageAlt:
       "House shifting service in Abu Dhabi — movers packing an apartment",
-    faqs: siteFaqs,
   },
   {
     id: "commercial-relocation",
     number: "02",
     title: "Commercial Relocation",
     shortTitle: "Commercial",
+    headline: "Business Moves With Minimal Downtime",
     description:
-      "Keep your business moving forward with organized, efficient relocation support designed to minimize disruption.",
-    longDescription:
-      "Office relocation in Abu Dhabi comes with a challenge most home moves don't: your business can't stop while you move. Aureon plans commercial relocations around your operating hours, minimizing downtime with structured scheduling and clear communication at every stage.\n\nAs specialist office furniture movers, we handle desks, workstations, IT equipment, and shared office assets with the same care we'd give a fragile antique — because a damaged monitor or broken cabinet is a delay you don't need. Our team manages business continuity planning, equipment handling, scheduled transportation, and setup coordination, so your team walks into a fully functioning workspace on day one.\n\nFrom small office moves to full-floor relocations, Aureon's commercial relocation service is built to keep Abu Dhabi businesses moving forward without disruption.",
+      "Commercial relocation planned around your hours — equipment, stock, and furniture moved with minimal disruption.",
+    body: [
+      "Commercial relocation is about protecting revenue as much as protecting furniture. Our team plans around your operating hours, coordinates equipment and stock separately from general furniture, and schedules the move to minimize disruption to staff and customers.",
+    ],
     features: [
-      "Business continuity planning",
-      "Equipment handling",
-      "Office furniture relocation",
-      "Scheduled transportation",
-      "Setup coordination",
-      "After-move support",
+      "After-hours & weekend scheduling",
+      "Equipment & stock handling",
+      "Furniture disassembly/reassembly",
+      "Coordinated multi-day moves for larger spaces",
     ],
     image: images.services.commercial,
     imageAlt:
@@ -175,17 +177,17 @@ export const services: Service[] = [
     number: "03",
     title: "Corporate Relocation",
     shortTitle: "Corporate",
+    headline: "Office Relocation & Employee Transitions in Abu Dhabi",
     description:
-      "Professional relocation solutions for companies, teams, employees, and corporate transitions.",
-    longDescription:
-      "Corporate relocations involve more moving parts than a single move — multiple employees, timelines, and company policies to align. As a professional moving company in Abu Dhabi with experience across residential, commercial, and corporate relocation, Aureon assigns a dedicated project coordinator to manage employee relocation support, multi-location scheduling, and policy-aligned planning from start to finish.\n\nWe keep HR teams and employees informed at every stage, with clear timelines and proactive communication so nothing falls through the cracks during a company-wide move or individual employee relocation.",
+      "Corporate relocation in Abu Dhabi — employee transfers and full-floor office moves as separate, scheduled workstreams.",
+    body: [
+      "Corporate relocation in Abu Dhabi covers everything from a single employee transfer to a full-floor office move. Aureon coordinates workstations, shared equipment, and individual employee belongings as separate, clearly scheduled workstreams — so nothing gets lost between \"the office move\" and \"the people move.\"",
+    ],
     features: [
-      "Employee relocation support",
-      "Multi-location coordination",
-      "Policy-aligned planning",
-      "Dedicated project management",
-      "Timeline management",
-      "Communication support",
+      "Employee relocation coordination",
+      "Office furniture movers for desks & workstations",
+      "IT/equipment handling (client-managed disconnection)",
+      "Scheduled floor-by-floor moves",
     ],
     image: images.services.corporate,
     imageAlt:
@@ -196,17 +198,17 @@ export const services: Service[] = [
     number: "04",
     title: "International Relocation",
     shortTitle: "International",
+    headline: "Cross-Border Moves From Abu Dhabi",
     description:
-      "Thoughtful relocation support for moves that cross borders, with careful coordination from origin to destination.",
-    longDescription:
-      "Relocating across borders adds layers most local moves don't have to think about — documentation, customs, and international transport logistics. Aureon supports international relocations from Abu Dhabi with careful origin-to-destination planning, professional crating for long-distance transport, and guidance through the documentation process, so you're not navigating it alone.\n\nOur team coordinates packing, international shipping, and destination delivery as one continuous process, with support through customs coordination and final setup — making a cross-border move feel manageable instead of overwhelming.",
+      "International relocation from Abu Dhabi — documentation, export packing, and shipping coordinated door to door.",
+    body: [
+      "Moving across a border takes more than a bigger truck. Our international relocation service coordinates documentation, export-ready packing, and shipping logistics from Abu Dhabi to your destination — with the same care applied at origin as we'd want applied at arrival.",
+    ],
     features: [
-      "Origin & destination planning",
-      "Documentation guidance",
-      "Packing & crating",
-      "International transportation",
-      "Customs coordination support",
-      "Delivery & setup",
+      "Export-ready packing",
+      "Documentation coordination",
+      "Shipping logistics (air/sea/land, via partners)",
+      "Origin-to-destination tracking updates",
     ],
     image: images.services.international,
     imageAlt:
@@ -217,63 +219,105 @@ export const services: Service[] = [
     number: "05",
     title: "Packing & Handling",
     shortTitle: "Packing",
+    headline: "Professional Packing Materials & Trained Handling",
     description:
-      "Careful packing, protective handling, and thoughtful preparation for safer transportation.",
-    longDescription:
-      "Good packing is the difference between a move that goes smoothly and one that ends in cracked glassware. As one of the best movers and packers in Abu Dhabi, Aureon uses professional-grade packing materials, protective wrapping for fragile and specialty items, and a clear labeling and inventory system so nothing gets lost or mishandled along the way.\n\nClients choose us as reliable movers and packers in Abu Dhabi because we treat packing as a skill, not an afterthought — furniture is wrapped and cushioned, boxes are labeled by room, and fragile items get individual attention. On request, our team also provides unpacking support at your destination, so your new space comes together faster.",
+      "Professional movers in Abu Dhabi trained in packing — fragile, oversized, and awkward items protected before the truck arrives.",
+    body: [
+      "The difference between a smooth move and a stressful one is usually decided before the truck ever arrives. Our packing and handling service uses professional-grade materials — not just boxes and tape — and trained staff who know how to protect fragile, oversized, and awkward items alike.",
+    ],
     features: [
-      "Professional packing materials",
-      "Fragile item protection",
-      "Labeling & inventory",
-      "Furniture wrapping",
-      "Specialty item handling",
-      "Unpacking support",
+      "Fragile item wrapping (glass, art, electronics)",
+      "Furniture blankets & corner protection",
+      "Labeled, room-by-room box systems",
+      "Full-pack or partial-pack options",
     ],
     image: images.services.packing,
     imageAlt:
-      "Professional movers and packers in Abu Dhabi carefully packing belongings",
+      "Aureon packing and handling in Abu Dhabi — branded boxes and protected furniture",
   },
   {
     id: "furniture-installation",
     number: "06",
     title: "Furniture Installation",
     shortTitle: "Furniture",
+    headline: "Furniture Movers in Abu Dhabi — Dismantle, Transport, Rebuild",
     description:
-      "From dismantling and assembly to final placement, every detail is handled with precision and care.",
-    longDescription:
-      "Furniture is usually the heaviest, most awkward, and most expensive part of any move — which is exactly where a specialist matters. As dedicated furniture movers in Abu Dhabi, Aureon handles dismantling, protective transport, reassembly, and room-by-room placement, so large or delicate pieces arrive undamaged and end up exactly where they belong.\n\nOur furniture relocation service in Abu Dhabi covers everything from wardrobes and bed frames to office furniture and fixtures, with a final walkthrough to confirm every piece is placed correctly. If you've been searching \"furniture movers near me,\" Aureon's Abu Dhabi–based team can typically schedule your move within days, not weeks.",
+      "Furniture movers in Abu Dhabi — dismantling, transport, and complete reassembly at your new address.",
+    body: [
+      "Furniture movers in Abu Dhabi are only as good as the reassembly at the other end. Our furniture installation service covers dismantling before the move and precise, complete reassembly and placement after — beds, wardrobes, shelving, and modular furniture included.",
+    ],
     features: [
-      "Disassembly & reassembly",
-      "Protective handling",
-      "Room-by-room placement",
-      "Fixture installation",
-      "Layout coordination",
-      "Final walkthrough",
+      "Dismantling before transport",
+      "Reassembly at destination",
+      "Wall-mounting & fittings on request",
+      "Final placement per your layout",
     ],
     image: images.services.furniture,
     imageAlt:
-      "Furniture movers in Abu Dhabi assembling and placing furniture",
+      "Aureon furniture installation service in Abu Dhabi — professional fitting and assembly",
   },
   {
     id: "storage-solutions",
     number: "07",
     title: "Storage Solutions",
     shortTitle: "Storage",
+    headline: "Secure Short- and Long-Term Storage in Abu Dhabi",
     description:
-      "Flexible storage solutions when you need a secure place for your belongings between destinations.",
-    longDescription:
-      "Not every move happens in one clean step. When there's a gap between leaving one space and settling into the next, Aureon's storage solutions in Abu Dhabi give your belongings a secure place to wait — with short and long-term options, inventory management, and flexible access.\n\nWhether you need storage for a few weeks during a house shifting transition or several months during a corporate relocation, our team coordinates pickup, storage, and final delivery as part of one seamless move.",
+      "Secure storage in Abu Dhabi between homes or offices — days, weeks, or months with inventory tracking.",
+    body: [
+      "Not every move happens in one clean step. Whether you're between homes, waiting on a new office fit-out, or downsizing temporarily, our storage solutions give you a secure place for your belongings for as long as you need it — days, weeks, or months.",
+    ],
     features: [
-      "Short & long-term options",
-      "Secure facilities",
-      "Inventory management",
-      "Climate considerations",
-      "Flexible access",
-      "Delivery coordination",
+      "Short-term & long-term options",
+      "Secure, monitored facilities",
+      "Inventory tracking",
+      "Easy scheduling for retrieval or delivery",
     ],
     image: images.services.storage,
     imageAlt:
       "Secure storage facility for movers and packers in Abu Dhabi",
+  },
+  {
+    id: "furniture-transportation",
+    number: "08",
+    title: "Furniture Transportation",
+    shortTitle: "Transport",
+    headline: "Furniture Relocation in Abu Dhabi — Any Size, Any Distance",
+    description:
+      "Furniture relocation in Abu Dhabi — single pieces or full loads, with protective wrapping and flexible scheduling.",
+    body: [
+      "Sometimes you don't need a full move — just one piece, or a few, moved safely. Our furniture transportation and furniture relocation service in Abu Dhabi covers everything from a single sofa to a full household's worth of furniture, delivered without damage.",
+    ],
+    features: [
+      "Single-item pickup & delivery",
+      "Multi-item furniture relocation",
+      "Protective wrapping for transit",
+      "Flexible scheduling, including short notice",
+    ],
+    image: images.services.furnitureTransport,
+    imageAlt:
+      "Furniture transportation in Abu Dhabi — movers relocating a sofa",
+  },
+  {
+    id: "handyman-work",
+    number: "09",
+    title: "Handyman Work",
+    shortTitle: "Handyman",
+    headline: "Assembly, Mounting & Fittings — Scheduled Separately",
+    description:
+      "Handyman assembly and mounting scheduled on your timeline — not rushed into moving day.",
+    body: [
+      "Installation needs precision and your input, not a rushed 20 minutes at the end of moving day. Our handyman service covers furniture assembly, TV and shelf mounting, and general fittings, scheduled on a day that works for you rather than squeezed into the move itself.",
+    ],
+    features: [
+      "Furniture assembly",
+      "TV & wall-mounted fittings",
+      "Shelving & general installation",
+      "Scheduled independently of your moving date",
+    ],
+    image: images.services.handyman,
+    imageAlt:
+      "Handyman assembly and mounting service in Abu Dhabi",
   },
 ];
 
@@ -290,31 +334,31 @@ export const journeyStages = [
     number: "01",
     title: "Plan",
     description:
-      "We understand your requirements and create a clear relocation plan.",
+      "We understand your requirements and create a clear plan, tailored to your move type, timeline, and budget.",
   },
   {
     number: "02",
     title: "Pack",
     description:
-      "Your belongings are carefully prepared and protected.",
+      "Your belongings are carefully prepared and protected using professional-grade packing materials.",
   },
   {
     number: "03",
     title: "Move",
     description:
-      "Professional handling and transportation keep your move on track.",
+      "Professional handling keeps your move on track, with trained crews and secure transportation across Abu Dhabi.",
   },
   {
     number: "04",
     title: "Deliver",
     description:
-      "Your belongings arrive safely at their destination.",
+      "Your belongings arrive safely, on time, with nothing missing and nothing damaged.",
   },
   {
     number: "05",
     title: "Settle",
     description:
-      "We help make the transition into your new space easier.",
+      "We help make the transition into your new space easier, so moving day ends with you settled, not still unpacking.",
   },
 ] as const;
 
@@ -400,10 +444,42 @@ export const gccLocationSuggestions = [
   "Oman",
 ] as const;
 
+export type WhatsAppQuoteDetails = {
+  moveType: string;
+  from: string;
+  to: string;
+  mobile?: string;
+  floorNumber?: string;
+  liftAvailable?: string;
+  fragileItems?: string;
+};
+
 export const whatsappQuote = {
   number: "919446791982",
-  buildMessage: (moveType: string, from: string, to: string) =>
-    `I am looking for a ${moveType} move from ${from} to ${to}.`,
+  buildMessage: ({
+    moveType,
+    from,
+    to,
+    mobile,
+    floorNumber,
+    liftAvailable,
+    fragileItems,
+  }: WhatsAppQuoteDetails) => {
+    let message = `I am looking for a ${moveType} move from ${from} to ${to}.`;
+    if (mobile?.trim()) {
+      message += `\nMobile: ${mobile.trim()}`;
+    }
+    if (floorNumber?.trim()) {
+      message += `\nFloor: ${floorNumber.trim()}`;
+    }
+    if (liftAvailable?.trim()) {
+      message += `\nLift available: ${liftAvailable.trim()}`;
+    }
+    if (fragileItems?.trim()) {
+      message += `\nFragile items: ${fragileItems.trim()}`;
+    }
+    return message;
+  },
 };
 
 /** Placeholder testimonials — replace with real client reviews when available */

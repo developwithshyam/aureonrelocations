@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 import { journeyStages } from "@/lib/constants";
+import { homeSeo } from "@/lib/seo-content";
 import { FadeIn } from "@/components/fade-in";
 import { SectionHeading } from "@/components/section-heading";
 
@@ -21,9 +22,11 @@ export function ProcessSection() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <FadeIn>
           <SectionHeading
-            subtitle="A simpler way to move."
-            title={["FROM HERE", "TO THERE."]}
+            subtitle={homeSeo.process.subtitle}
+            title={[...homeSeo.process.title]}
+            description={homeSeo.process.intro}
             dark
+            fullWidth
             className="mb-16 lg:mb-20"
           />
         </FadeIn>

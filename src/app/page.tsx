@@ -5,7 +5,9 @@ import { ServicesGrid } from "@/components/home/services-grid";
 import { MovingJourney } from "@/components/home/moving-journey";
 import { WhyAureon } from "@/components/home/why-aureon";
 import { BrandStatement } from "@/components/home/brand-statement";
+import { LocalNearMe } from "@/components/home/local-near-me";
 import { ResidentialCommercial } from "@/components/home/residential-commercial";
+import { VillaMoversCallout } from "@/components/home/villa-movers-callout";
 import { Testimonials } from "@/components/home/testimonials";
 import { FinalCta } from "@/components/home/final-cta";
 import { FaqSection } from "@/components/faq-section";
@@ -30,9 +32,11 @@ export default function HomePage() {
       <TrustSection />
       <QuickQuote />
       <ServicesGrid />
+      <VillaMoversCallout />
       <MovingJourney />
       <WhyAureon />
       <BrandStatement />
+      <LocalNearMe />
       <Testimonials />
       <FinalCta />
       <FaqSection faqs={siteFaqs} />

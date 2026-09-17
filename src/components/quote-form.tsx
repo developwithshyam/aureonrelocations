@@ -10,12 +10,14 @@ type QuoteFormProps = {
   className?: string;
   compact?: boolean;
   centered?: boolean;
+  hideFormHeading?: boolean;
 };
 
 export function QuoteForm({
   className,
   compact = false,
   centered = false,
+  hideFormHeading = false,
 }: QuoteFormProps) {
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
@@ -29,11 +31,11 @@ export function QuoteForm({
 
     if (!trimmedFrom || !trimmedTo || !moveType) return;
 
-    const message = whatsappQuote.buildMessage(
+    const message = whatsappQuote.buildMessage({
       moveType,
-      trimmedFrom,
-      trimmedTo,
-    );
+      from: trimmedFrom,
+      to: trimmedTo,
+    });
     const url = `https://wa.me/${whatsappQuote.number}?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank", "noopener,noreferrer");
   };
@@ -44,6 +46,9 @@ export function QuoteForm({
     "focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent",
   );
 
+  const labelClass =
+    "mb-2 block text-xs font-medium uppercase tracking-widest text-text-secondary";
+
   return (
     <form
       onSubmit={handleSubmit}
@@ -52,14 +57,16 @@ export function QuoteForm({
         className,
       )}
     >
-      <h2
-        className={cn(
-          "mb-6 w-full text-lg font-medium tracking-wide text-primary-dark uppercase",
-          centered ? "text-center" : "text-left",
-        )}
-      >
-        Plan Your Move
-      </h2>
+      {!hideFormHeading && (
+        <h2
+          className={cn(
+            "mb-6 w-full text-lg font-medium tracking-wide text-primary-dark uppercase",
+            centered ? "text-center" : "text-left",
+          )}
+        >
+          Plan Your Move
+        </h2>
+      )}
 
       <div
         className={cn(
@@ -86,10 +93,7 @@ export function QuoteForm({
         />
 
         <div>
-          <label
-            htmlFor="quote-type"
-            className="mb-2 block text-xs font-medium uppercase tracking-widest text-text-secondary"
-          >
+          <label htmlFor="quote-type" className={labelClass}>
             Move Type
           </label>
           <select

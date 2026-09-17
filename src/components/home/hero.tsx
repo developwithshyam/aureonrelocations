@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion, useReducedMotion } from "motion/react";
 import { images } from "@/lib/constants";
 import { homeSeo } from "@/lib/seo-content";
+import { Button } from "@/components/button";
 
 export function Hero() {
   const prefersReducedMotion = useReducedMotion();
@@ -37,27 +38,41 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mb-6 text-xs font-semibold tracking-[0.25em] text-accent uppercase"
         >
-          Aureon Relocations
+          {homeSeo.eyebrow}
         </motion.p>
 
         <motion.h1
           initial={prefersReducedMotion ? false : { opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.35 }}
-          className="mx-auto max-w-4xl text-4xl font-light leading-[1.1] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl"
+          className="mx-auto max-w-6xl text-4xl font-light leading-[1.1] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl"
         >
-          {homeSeo.h1}
+          {homeSeo.h1Lines.map((line) => (
+            <span key={line} className="block">
+              {line}
+            </span>
+          ))}
         </motion.h1>
 
         <motion.p
           initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-white/75 sm:text-lg"
+          className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/75 sm:text-lg"
         >
-          Professional relocation solutions designed around your home, your
-          business, and your peace of mind.
+          {homeSeo.heroSubline}
         </motion.p>
+
+        <motion.div
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.65 }}
+          className="mt-10"
+        >
+          <Button href="/contact" variant="outline">
+            {homeSeo.heroCta}
+          </Button>
+        </motion.div>
       </div>
     </section>
   );

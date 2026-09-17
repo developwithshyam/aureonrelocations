@@ -7,8 +7,6 @@ import { services } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/button";
 import { FadeIn } from "@/components/fade-in";
-import { ServiceFaqList } from "@/components/service-faq";
-
 export function ServicesNav() {
   const [activeId, setActiveId] = useState(services[0]?.id ?? "");
 
@@ -103,11 +101,11 @@ export function ServiceDetailBlocks() {
                   >
                     {service.title}
                   </h2>
-                  <p className="mt-4 text-base leading-relaxed text-text-secondary">
-                    {service.description}
-                  </p>
+                  <h3 className="mt-4 text-xl font-medium tracking-tight text-primary-dark sm:text-2xl">
+                    {service.headline}
+                  </h3>
                   <div className="mt-4 space-y-4">
-                    {service.longDescription.split("\n\n").map((paragraph) => (
+                    {service.body.map((paragraph) => (
                       <p
                         key={paragraph.slice(0, 48)}
                         className="text-base leading-relaxed text-text-secondary"
@@ -116,10 +114,6 @@ export function ServiceDetailBlocks() {
                       </p>
                     ))}
                   </div>
-
-                  {service.faqs && service.faqs.length > 0 && (
-                    <ServiceFaqList faqs={service.faqs} />
-                  )}
 
                   <div className="mt-8">
                     <h3 className="text-xs font-semibold tracking-widest text-primary-dark uppercase">
