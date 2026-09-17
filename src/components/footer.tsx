@@ -139,25 +139,9 @@ export function Footer() {
 
         <div className="mt-0 border-t border-white/10 px-6 pt-8 lg:mt-16 lg:px-0">
           <LicenseDetails variant="compact" className="mb-6 text-center lg:text-left" />
-          <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-            <p className="text-center text-xs text-white/40 sm:text-left">
-              © 2026 Aureon Relocations. All rights reserved.
-            </p>
-            <div className="flex gap-6">
-              <Link
-                href="#"
-                className="text-xs text-white/40 transition-colors hover:text-white/70"
-              >
-                Privacy Policy
-              </Link>
-              <Link
-                href="#"
-                className="text-xs text-white/40 transition-colors hover:text-white/70"
-              >
-                Terms of Service
-              </Link>
-            </div>
-          </div>
+          <p className="text-center text-xs text-white/40 lg:text-left">
+            © 2026 Aureon Relocations. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>

@@ -541,7 +541,9 @@ export const googleSheets = {
 };
 
 export const socialLinks = [
-  { label: "Instagram", href: "#" },
-  { label: "LinkedIn", href: "#" },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/aureonrelocations",
+  },
   { label: "Facebook", href: "#" },
 ] as const;

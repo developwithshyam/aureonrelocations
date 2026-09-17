@@ -32,27 +32,27 @@ export function Hero() {
       </div>
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-28 text-center lg:px-8 lg:py-32">
-        <motion.p
+        <motion.h1
           initial={prefersReducedMotion ? false : { opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mb-6 text-xs font-semibold tracking-[0.25em] text-accent uppercase"
         >
-          {homeSeo.eyebrow}
-        </motion.p>
+          {homeSeo.h1}
+        </motion.h1>
 
-        <motion.h1
+        <motion.p
           initial={prefersReducedMotion ? false : { opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.35 }}
           className="mx-auto max-w-6xl text-4xl font-light leading-[1.1] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl"
         >
-          {homeSeo.h1Lines.map((line) => (
+          {homeSeo.heroLeadLines.map((line) => (
             <span key={line} className="block">
               {line}
             </span>
           ))}
-        </motion.h1>
+        </motion.p>
 
         <motion.p
           initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}

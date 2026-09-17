@@ -3,9 +3,8 @@ export const homeSeo = {
     "Movers Abu Dhabi, UAE | Licensed Moving Company & Packers | Aureon Relocations",
   description:
     "Aureon Relocations is a trusted, licensed moving company in Abu Dhabi. Professional movers and packers for house shifting, office relocation, and furniture movers — affordable, honest pricing.",
-  eyebrow: "Movers Abu Dhabi · UAE",
-  h1: "Not Just a New Address. A New Beginning — With Abu Dhabi's Trusted Movers & Packers",
-  h1Lines: [
+  h1: "Movers Abu Dhabi · UAE",
+  heroLeadLines: [
     "Not Just a New Address.",
     "A New Beginning — With Abu Dhabi's Trusted Movers & Packers",
   ] as const,
