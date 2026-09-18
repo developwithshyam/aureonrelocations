@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import { Footer } from "@/components/footer";
+import { FloatingContact } from "@/components/floating-contact";
 import { Navbar } from "@/components/navbar";
 import { ThemeVars } from "@/components/theme-vars";
 import { LocalBusinessJsonLd } from "@/components/structured-data";
@@ -34,6 +35,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
+        <FloatingContact />
       </body>
     </html>
   );

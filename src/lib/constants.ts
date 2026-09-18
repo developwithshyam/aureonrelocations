@@ -2,6 +2,15 @@ import type { StaticImageData } from "next/image";
 import { homeRelocationImageAsset } from "@/lib/landing-images";
 
 export const callNowHref = "tel:+971561338182" as const;
+export const displayPhone = "+971 56 133 8182" as const;
+export const floatingContactTitle = "Get in touch" as const;
+
+export const whatsappGeneralInquiryMessage =
+  "I am looking to move, can I know more about your services" as const;
+
+export function buildWhatsAppUrl(message: string, number: string) {
+  return `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
+}
 
 export const navLinks = [
   { label: "Home", href: "/" },
@@ -404,6 +413,11 @@ export const whatsappQuote = {
     return message;
   },
 };
+
+export const whatsappGeneralInquiryHref = buildWhatsAppUrl(
+  whatsappGeneralInquiryMessage,
+  whatsappQuote.number,
+);
 
 /** Placeholder testimonials — replace with real client reviews when available */
 export const testimonials = [
