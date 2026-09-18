@@ -67,7 +67,7 @@ export const homeSeo = {
     body: "Villa moves mean more rooms, more furniture, and more to protect. Our professional villa movers handle large furniture, multi-room packing, and delicate items with the same 50%-after-approval guarantee as every other move.",
   },
   localBlock: {
-    heading: "Movers Near Me in Abu Dhabi",
+    heading: "Movers Near Me in Abu\u00A0Dhabi",
     body: "Searching for a moving company near you? Aureon Relocations serves every district of Abu Dhabi with the same trained crews, transparent pricing, and licensed service — no matter which part of the city you're moving from or to.",
   },
 } as const;
