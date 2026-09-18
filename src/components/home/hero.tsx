@@ -45,7 +45,7 @@ export function Hero() {
           initial={prefersReducedMotion ? false : { opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.35 }}
-          className="mx-auto max-w-6xl text-4xl font-light leading-[1.1] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl"
+          className="mx-auto max-w-6xl text-4xl font-medium leading-[1.1] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl"
         >
           {homeSeo.heroLeadLines.map((line) => (
             <span key={line} className="block">
