@@ -378,7 +378,7 @@ export type WhatsAppQuoteDetails = {
 };
 
 export const whatsappQuote = {
-  number: "919446791982",
+  number: "971561338182",
   buildMessage: ({
     moveType,
     from,
