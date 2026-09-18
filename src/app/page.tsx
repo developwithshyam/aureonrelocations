@@ -37,7 +37,7 @@ export default function HomePage() {
       <WhyAureon />
       <BrandStatement />
       <LocalNearMe />
-      <Testimonials />
+      {/* <Testimonials /> */}
       <FinalCta />
       <FaqSection faqs={siteFaqs} />
     </>

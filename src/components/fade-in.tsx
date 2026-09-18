@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView, useReducedMotion } from "motion/react";
+import { useIsClient } from "@/lib/use-is-client";
 import { cn } from "@/lib/utils";
 
 type FadeInProps = {
@@ -30,6 +31,20 @@ export function FadeIn({
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.15 });
   const [forceVisible, setForceVisible] = useState(false);
+  const isClient = useIsClient();
+
+  useEffect(() => {
+    if (!isClient) return;
+
+    const frame = requestAnimationFrame(() => {
+      const el = ref.current;
+      if (el && isElementInViewport(el)) {
+        setForceVisible(true);
+      }
+    });
+
+    return () => cancelAnimationFrame(frame);
+  }, [isClient]);
 
   useEffect(() => {
     if (isInView || prefersReducedMotion) return;
@@ -58,14 +73,19 @@ export function FadeIn({
     return <div className={className}>{children}</div>;
   }
 
-  const visible = isInView || forceVisible;
+  // Keep visible during SSR and hydration; only hide for scroll-reveal after client mount.
+  const visible = !isClient || isInView || forceVisible;
 
   return (
     <motion.div
       ref={ref}
       className={cn(className)}
-      initial={{ opacity: 0, ...offset }}
-      animate={visible ? { opacity: 1, x: 0, y: 0 } : { opacity: 0, ...offset }}
+      initial={false}
+      animate={
+        visible
+          ? { opacity: 1, x: 0, y: 0 }
+          : { opacity: 0, ...offset }
+      }
       transition={{
         duration,
         delay: visible ? delay : 0,

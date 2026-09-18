@@ -6,7 +6,7 @@ export const homeSeo = {
   h1: "Movers Abu Dhabi · UAE",
   heroLeadLines: [
     "Not Just a New Address.",
-    "A New Beginning — With Abu Dhabi's Trusted Movers & Packers",
+    "A New Beginning — With Abu\u00A0Dhabi's Trusted Movers & Packers",
   ] as const,
   heroSubline:
     "Aureon Relocations is a licensed moving company in Abu Dhabi, helping families and businesses move closer to the life they're building. As professional movers and packers, we handle every house shifting, apartment shifting, and office relocation with care, honesty, and zero rush — because how you move matters as much as where you're going.",
@@ -27,54 +27,7 @@ export const homeSeo = {
   services: {
     title: "More Than Moving — Our Services",
     intro:
-      "Whether you're a family relocating across Abu Dhabi or a business moving an entire office, Aureon offers nine dedicated services built around one goal — a move that feels handled, not hectic.",
-  },
-  serviceSummaries: {
-    "residential-relocation": {
-      title: "Residential Relocation",
-      description:
-        "Moving home should feel exciting — not exhausting. Our house shifting and apartment shifting services in Abu Dhabi cover packing, transport, and placement, so you can settle into your new space with ease.",
-    },
-    "commercial-relocation": {
-      title: "Commercial Relocation",
-      description:
-        "Keep your business moving forward. Our commercial relocation service is organized around your operating hours, minimizing disruption to staff, stock, and daily operations.",
-    },
-    "corporate-relocation": {
-      title: "Corporate Relocation",
-      description:
-        "Professional relocation solutions for companies, teams, and employee transitions — from single-desk moves to full-floor office relocation in Abu Dhabi.",
-    },
-    "international-relocation": {
-      title: "International Relocation",
-      description:
-        "Thoughtful support for moves that cross borders. We coordinate documentation, packing, and shipping from origin in Abu Dhabi to your destination worldwide.",
-    },
-    "packing-handling": {
-      title: "Packing & Handling",
-      description:
-        "Careful packing and protective handling for safer transportation of everything you own — from everyday items to your most fragile belongings.",
-    },
-    "furniture-installation": {
-      title: "Furniture Installation & Furniture Movers",
-      description:
-        "From dismantling to final placement, every detail is handled with precision and care — our furniture movers in Abu Dhabi reassemble and position each piece exactly where it belongs.",
-    },
-    "storage-solutions": {
-      title: "Storage Solutions",
-      description:
-        "Flexible, secure storage in Abu Dhabi when you need a safe place for your belongings between destinations — short-term or long-term.",
-    },
-    "furniture-transportation": {
-      title: "Furniture Transportation & Relocation",
-      description:
-        "Safe, careful furniture relocation in Abu Dhabi for every piece — from a single sofa to a full household — delivered without damage, every time.",
-    },
-    "handyman-work": {
-      title: "Handyman Work & Office Furniture Movers",
-      description:
-        "Assembly, mounting, and fittings done precisely — including office furniture movers for desks and workstations — scheduled on a day that suits you, not rushed into moving day.",
-    },
+      "Whether you're a family relocating across Abu Dhabi or a business moving an entire office, Aureon offers seven dedicated services built around one goal — a move that feels handled, not hectic.",
   },
   process: {
     subtitle: "From Here To There — A Simpler Way to Move",
@@ -126,10 +79,10 @@ export const servicesSeo = {
   eyebrow: "Our Services",
   h1Lines: ["Every Kind of Move.", "One Trusted Moving Company."] as const,
   heroSubline:
-    "Aureon Relocations is a licensed moving company in Abu Dhabi offering nine dedicated services — from house shifting and villa moves to office relocation and international shipping. Whatever you're moving, it's handled by specialists, not a one-size-fits-all crew.",
+    "Aureon Relocations is a licensed moving company in Abu Dhabi offering seven dedicated services — from home and office relocation to furniture transport, packing, storage, and event logistics. Whatever you're moving, it's handled by specialists, not a one-size-fits-all crew.",
   intro: {
-    heading: "Nine Services. One Standard of Care.",
-    body: "Most movers and packers in Abu Dhabi offer a single crew for every job. Aureon treats each type of move as its own discipline — residential, commercial, corporate, international, packing, furniture, storage, transportation, and handyman work — each staffed and planned differently, because a villa move and an office relocation have almost nothing in common.",
+    heading: "Seven Services. One Standard of Care.",
+    body: "Most movers and packers in Abu Dhabi offer a single crew for every job. Aureon treats each type of move as its own discipline — home relocation, office and commercial moves, furniture transport, packing support, dismantling and reassembly, warehouse and storage, and exhibition logistics — each staffed and planned differently, because a villa move and an office relocation have almost nothing in common.",
   },
   cta: {
     heading: "Not Sure Which Service You Need?",
@@ -140,28 +93,28 @@ export const servicesSeo = {
     {
       question: "Does Aureon offer both packing and furniture assembly?",
       answer:
-        "Yes. Aureon Relocations offers packing & handling as a standalone service and furniture installation (dismantling, transport, and reassembly) as a separate one — you can book either individually or combined into a full move.",
+        "Yes. Aureon offers packing and moving support as a standalone service and furniture dismantling and reassembly as a separate one — you can book either individually or combined into a full move.",
     },
     {
       question: "Can Aureon store my belongings between moves?",
       answer:
-        "Yes. Aureon provides secure short-term and long-term storage solutions in Abu Dhabi for clients who need a safe place for their belongings between homes or offices.",
+        "Yes. Aureon provides warehouse and storage services in Abu Dhabi, including temporary furniture storage and move-store-deliver options for clients between homes or offices.",
     },
     {
-      question: "Does Aureon handle international moves from Abu Dhabi?",
+      question: "Does Aureon handle exhibition or event equipment?",
       answer:
-        "Yes. Aureon's international relocation service coordinates documentation, export packing, and shipping logistics for moves from Abu Dhabi to destinations worldwide.",
+        "Yes. Aureon's exhibition and event logistics service covers transportation and delivery of exhibition equipment, event gear, and furniture for events across Abu Dhabi and the UAE.",
     },
     {
-      question: "Is handyman work included in a standard move?",
+      question: "Is dismantling and reassembly included in a standard move?",
       answer:
-        "Handyman work — assembly, mounting, and fittings — is scheduled as a separate service on a day that suits the client, rather than rushed into the moving day itself.",
+        "Furniture dismantling and reassembly can be booked as part of your move or as a dedicated service — especially for large or bulky pieces that need careful preparation.",
     },
     {
       question:
         "Can I book just furniture transportation without a full house move?",
       answer:
-        "Yes. Aureon offers furniture transportation and furniture relocation in Abu Dhabi for single items or small loads, without requiring a full residential or commercial move.",
+        "Yes. Aureon offers furniture moving and transportation in Abu Dhabi for single items or small loads, without requiring a full home or office relocation.",
     },
   ],
 } as const;

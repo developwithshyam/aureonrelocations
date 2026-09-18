@@ -24,7 +24,7 @@ const splits = [
     subline: "Structured support for every employee move.",
     href: "/corporate-relocation",
     cta: "Explore Corporate",
-    image: images.services.corporate,
+    image: images.services.officeCommercial,
     alt: corporateRelocationImageAlt,
   },
 ] as const;

@@ -36,7 +36,7 @@ export function Hero() {
           initial={prefersReducedMotion ? false : { opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mb-6 text-xs font-semibold tracking-[0.25em] text-accent uppercase"
+          className="mb-6 text-md font-semibold tracking-[0.25em] text-accent uppercase"
         >
           {homeSeo.h1}
         </motion.h1>

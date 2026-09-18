@@ -19,22 +19,11 @@ export function ServicesGrid() {
         </FadeIn>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service, index) => {
-            const summary =
-              homeSeo.serviceSummaries[
-                service.id as keyof typeof homeSeo.serviceSummaries
-              ];
-
-            return (
-              <FadeIn key={service.id} delay={index * 0.06}>
-                <ServiceCard
-                  service={service}
-                  title={summary?.title}
-                  description={summary?.description}
-                />
-              </FadeIn>
-            );
-          })}
+          {services.map((service, index) => (
+            <FadeIn key={service.id} delay={index * 0.06}>
+              <ServiceCard service={service} />
+            </FadeIn>
+          ))}
         </div>
       </div>
     </section>

@@ -21,11 +21,15 @@ export const metadata: Metadata = createPageMetadata({
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${plusJakarta.variable} h-full antialiased`}>
+    <html
+      lang="en"
+      className={`${plusJakarta.variable} h-full antialiased`}
+      suppressHydrationWarning
+    >
       <head>
         <ThemeVars />
       </head>
-      <body className="flex min-h-full flex-col">
+      <body className="flex min-h-full flex-col" suppressHydrationWarning>
         <LocalBusinessJsonLd />
         <Navbar />
         <main className="flex-1">{children}</main>

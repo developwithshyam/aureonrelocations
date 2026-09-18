@@ -35,7 +35,7 @@ export const homeRelocationStories = [
   {
     title: "Apartment living, thoughtfully moved",
     body: "Tight timelines, elevator bookings, and neighbour-friendly loading — we coordinate the details Abu Dhabi apartment moves demand, so your first night in the new place feels calm, not chaotic.",
-    image: images.services.residential,
+    image: images.services.homeRelocation,
     alt: homeRelocationImageAlt,
   },
   {

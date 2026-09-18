@@ -33,7 +33,9 @@ const partnerIcons: LucideIcon[] = [
   Fuel,
 ];
 
-const corporateService = services.find((s) => s.id === "corporate-relocation");
+const corporateService = services.find(
+  (s) => s.id === "office-commercial-relocation",
+);
 
 export function CorporateRelocationPageContent() {
   return (
@@ -41,7 +43,7 @@ export function CorporateRelocationPageContent() {
       <section className="relative flex min-h-[65vh] items-end overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src={corporateService?.image ?? images.services.corporate}
+            src={corporateService?.image ?? images.services.officeCommercial}
             alt={corporateService?.imageAlt ?? corporateRelocationImageAlt}
             fill
             priority
@@ -171,7 +173,7 @@ export function CorporateRelocationPageContent() {
             </div>
             <FadeIn delay={0.1}>
               <ImageReveal
-                src={images.services.corporate}
+                src={images.services.officeCommercial}
                 alt={corporateRelocationImageAlt}
                 className="aspect-4/5 w-full rounded-xl"
                 sizes="(max-width: 1024px) 100vw, 50vw"

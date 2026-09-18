@@ -104,16 +104,18 @@ export function ServiceDetailBlocks() {
                   <h3 className="mt-4 text-xl font-medium tracking-tight text-primary-dark sm:text-2xl">
                     {service.headline}
                   </h3>
-                  <div className="mt-4 space-y-4">
-                    {service.body.map((paragraph) => (
-                      <p
-                        key={paragraph.slice(0, 48)}
-                        className="text-base leading-relaxed text-text-secondary"
-                      >
-                        {paragraph}
-                      </p>
-                    ))}
-                  </div>
+                  {service.body.length > 0 && (
+                    <div className="mt-4 space-y-4">
+                      {service.body.map((paragraph) => (
+                        <p
+                          key={paragraph.slice(0, 48)}
+                          className="text-base leading-relaxed text-text-secondary"
+                        >
+                          {paragraph}
+                        </p>
+                      ))}
+                    </div>
+                  )}
 
                   <div className="mt-8">
                     <h3 className="text-xs font-semibold tracking-widest text-primary-dark uppercase">

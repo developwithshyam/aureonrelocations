@@ -28,7 +28,7 @@ import { cn } from "@/lib/utils";
 
 const priorityIcons: LucideIcon[] = [Heart, Home, Shield, Clock];
 
-const residentialService = services.find((s) => s.id === "residential-relocation");
+const residentialService = services.find((s) => s.id === "home-relocation");
 
 export function HomeRelocationPageContent() {
   const features = residentialService?.features ?? [];
