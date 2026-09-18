@@ -4,6 +4,7 @@ import { homeRelocationImageAsset } from "@/lib/landing-images";
 export const callNowHref = "tel:+971561338182" as const;
 
 export const navLinks = [
+  { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Contact", href: "/contact" },
