@@ -105,7 +105,7 @@ export const siteFaqs: ServiceFaq[] = [
   {
     question: "How can I contact Aureon Relocations for a quote?",
     answer:
-      "You can contact Aureon Relocations by phone at +971 561338182 or +971 555509390, by email at info@aureonrelocations.ae, or through the online quote form at aureonrelocations.com/contact. Aureon typically responds the same day with a free, no-obligation estimate.",
+      "You can contact Aureon Relocations by phone at +971 561338182 or +971 555509390, by email at info@aureonrelocations.ae, or through the online quote form at https://www.aureonrelocations.ae/contact. Aureon typically responds the same day with a free, no-obligation estimate.",
   },
   {
     question: "Where is Aureon Relocations located?",

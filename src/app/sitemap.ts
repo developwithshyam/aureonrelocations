@@ -3,7 +3,7 @@ import { siteUrl } from "@/lib/metadata";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
-    "",
+    "/",
     "/about",
     "/services",
     "/contact",
@@ -11,10 +11,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/corporate-relocation",
   ];
 
+  const lastModified = new Date().toISOString();
+
   return routes.map((route) => ({
     url: `${siteUrl}${route}`,
-    lastModified: new Date(),
-    changeFrequency: route === "" ? "weekly" : "monthly",
-    priority: route === "" ? 1 : 0.8,
+    lastModified,
+    changeFrequency: route === "/" ? "weekly" : "monthly",
+    priority: route === "/" ? 1 : 0.8,
   }));
 }

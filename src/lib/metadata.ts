@@ -1,7 +1,16 @@
 import type { Metadata } from "next";
 
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://aureonrelocations.com";
+const siteUrl = (
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aureonrelocations.ae"
+).replace(/\/$/, "");
+
+function pageUrl(path = "") {
+  if (!path || path === "/") {
+    return `${siteUrl}/`;
+  }
+
+  return `${siteUrl}${path.startsWith("/") ? path : `/${path}`}`;
+}
 
 export function createPageMetadata({
   title,
@@ -12,9 +21,10 @@ export function createPageMetadata({
   description: string;
   path?: string;
 }): Metadata {
-  const url = `${siteUrl}${path}`;
+  const url = pageUrl(path);
 
   return {
+    metadataBase: new URL(siteUrl),
     title,
     description,
     alternates: {
