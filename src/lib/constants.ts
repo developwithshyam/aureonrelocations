@@ -419,25 +419,34 @@ export const whatsappGeneralInquiryHref = buildWhatsAppUrl(
   whatsappQuote.number,
 );
 
-/** Placeholder testimonials — replace with real client reviews when available */
+/** Client testimonials shown on the home page slider */
 export const testimonials = [
   {
+    author: "Gaynor Reed",
+    rating: 5,
+    source: "google",
+    excerpt:
+      "I used Aureon Relocations for my recent home move. The team made what could have been a very stressful move feel straightforward and well organised. They carefully dismantled two 8ft wardrobes and reassembled them at my new home, and stayed way beyond their allocated time to get everything finished. I would definitely recommend them.",
     quote:
-      "From the first conversation to the final delivery, the entire process felt organized, professional, and stress-free.",
-    author: "Client Name",
-    isPlaceholder: true,
+      "I used Aureon Relocations for my recent home move. I was really impressed with the service from start to finish. The team made what could have been a very stressful move feel straightforward and well organised. They carefully dismantled two 8ft wardrobes and reassembled them at my new home, taking the time to make sure everything was put back properly. They also stayed way beyond their allocated time to get everything finished, which I really appreciated. The whole team were friendly, respectful and worked incredibly hard. They took great care with my belongings and nothing seemed like too much trouble. I would definitely recommend them to anyone looking for a reliable relocation company. A big thank you to the whole team for making my move so much easier.",
   },
   {
+    author: "Manisha Gangwani",
+    rating: 5,
+    source: "google",
+    excerpt:
+      "Experienced and professional team. Very friendly, did not misplace any items and stayed until every item was delivered. Packaging was very secure and none of the items were broken or damaged.",
     quote:
-      "The team handled everything with care and kept us informed at every stage. Moving felt far less overwhelming than we expected.",
-    author: "Client Name",
-    isPlaceholder: true,
+      "Experienced and professional team. Very friendly, did not misplace any items and stayed until every item was delivered. Packaging was very secure and none of the items were broken or damaged.",
   },
   {
+    author: "Tintu Abraham",
+    rating: 5,
+    source: "google",
+    excerpt:
+      "I am extremely pleased with the moving service provided. They successfully dismantled, packed, transported, and reassembled a large 5-door cabinet, along with a recliner and drawers. I highly recommend their services to anyone looking for a reliable and professional moving company.",
     quote:
-      "Professional, punctual, and thoughtful. Aureon made our office relocation smooth and well-coordinated.",
-    author: "Client Name",
-    isPlaceholder: true,
+      "I am extremely pleased with the moving service provided. The team was highly professional, efficient, and careful throughout the entire process. They successfully dismantled, packed, transported, and reassembled a large 5-door cabinet, along with a recliner and drawers. I was particularly impressed with their attention to detail while dismantling and fixing the cabinet, as well as the care they took when packing and handling all the items. Everything was completed smoothly, safely, and professionally, with great care taken to avoid any damage. The team was also courteous, organized, and respectful throughout the move. I highly recommend their services to anyone looking for a reliable and professional moving company. Excellent service from start to finish!",
   },
 ] as const;
 
