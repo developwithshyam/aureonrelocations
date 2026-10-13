@@ -11,7 +11,7 @@ import { VillaMoversCallout } from "@/components/home/villa-movers-callout";
 import { Testimonials } from "@/components/home/testimonials";
 import { FinalCta } from "@/components/home/final-cta";
 import { FaqSection } from "@/components/faq-section";
-import { FaqPageJsonLd } from "@/components/structured-data";
+import { FaqPageJsonLd, WebSiteJsonLd } from "@/components/structured-data";
 import { siteFaqs } from "@/lib/constants";
 import { createPageMetadata } from "@/lib/metadata";
 import { homeSeo } from "@/lib/seo-content";
@@ -25,6 +25,7 @@ export const metadata = createPageMetadata({
 export default function HomePage() {
   return (
     <>
+      <WebSiteJsonLd />
       <FaqPageJsonLd faqs={siteFaqs} />
       <Hero />
       <ResidentialCommercial />

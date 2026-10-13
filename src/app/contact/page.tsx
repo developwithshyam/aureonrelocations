@@ -7,7 +7,7 @@ import { ContactInfoCard } from "@/components/contact-info-card";
 import { FaqSection } from "@/components/faq-section";
 import { FadeIn } from "@/components/fade-in";
 import { LicenseDetails } from "@/components/license-details";
-import { FaqPageJsonLd } from "@/components/structured-data";
+import { BreadcrumbListJsonLd } from "@/components/structured-data";
 import { siteFaqs } from "@/lib/constants";
 
 export const metadata = createPageMetadata({
@@ -19,7 +19,12 @@ export const metadata = createPageMetadata({
 export default function ContactPage() {
   return (
     <>
-      <FaqPageJsonLd faqs={siteFaqs} />
+      <BreadcrumbListJsonLd
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Contact", path: "/contact" },
+        ]}
+      />
 
       <section className="relative flex min-h-[50vh] items-end overflow-hidden">
         <div className="absolute inset-0">

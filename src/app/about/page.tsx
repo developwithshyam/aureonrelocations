@@ -5,6 +5,7 @@ import { aboutSeo } from "@/lib/seo-content";
 import { Button } from "@/components/button";
 import { FadeIn } from "@/components/fade-in";
 import { LicenseDetails } from "@/components/license-details";
+import { BreadcrumbListJsonLd } from "@/components/structured-data";
 
 export const metadata = createPageMetadata({
   title: aboutSeo.title,
@@ -15,6 +16,12 @@ export const metadata = createPageMetadata({
 export default function AboutPage() {
   return (
     <>
+      <BreadcrumbListJsonLd
+        items={[
+          { name: "Home", path: "/" },
+          { name: "About", path: "/about" },
+        ]}
+      />
       <section className="relative flex min-h-[70vh] items-end overflow-hidden">
         <div className="absolute inset-0">
           <Image

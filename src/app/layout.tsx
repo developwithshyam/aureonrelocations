@@ -5,7 +5,7 @@ import { FloatingContact } from "@/components/floating-contact";
 import { Navbar } from "@/components/navbar";
 import { ThemeVars } from "@/components/theme-vars";
 import { LocalBusinessJsonLd } from "@/components/structured-data";
-import { createPageMetadata } from "@/lib/metadata";
+import { rootLayoutMetadata } from "@/lib/metadata";
 import "./globals.css";
 
 const plusJakarta = Plus_Jakarta_Sans({
@@ -14,11 +14,7 @@ const plusJakarta = Plus_Jakarta_Sans({
   display: "swap",
 });
 
-export const metadata: Metadata = createPageMetadata({
-  title: "Aureon Relocations | Professional Moving & Relocation Services",
-  description:
-    "Aureon Relocations provides professional residential, commercial, corporate, and international relocation solutions in Abu Dhabi, UAE.",
-});
+export const metadata: Metadata = rootLayoutMetadata;
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (

@@ -22,6 +22,8 @@ export const navLinks = [
 export const footerNavLinks = [
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
+  { label: "Home Relocation", href: "/home-relocation" },
+  { label: "Corporate Relocation", href: "/corporate-relocation" },
   { label: "Contact", href: "/contact" },
   { label: "Call Now", href: callNowHref },
 ] as const;

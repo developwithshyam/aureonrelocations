@@ -6,6 +6,7 @@ import { Button } from "@/components/button";
 import { FaqSection } from "@/components/faq-section";
 import { FadeIn } from "@/components/fade-in";
 import {
+  BreadcrumbListJsonLd,
   FaqPageJsonLd,
   ServicesItemListJsonLd,
 } from "@/components/structured-data";
@@ -23,6 +24,12 @@ export const metadata = createPageMetadata({
 export default function ServicesPage() {
   return (
     <>
+      <BreadcrumbListJsonLd
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Services", path: "/services" },
+        ]}
+      />
       <ServicesItemListJsonLd />
       <FaqPageJsonLd faqs={[...servicesSeo.faqs]} />
 

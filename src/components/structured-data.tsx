@@ -4,6 +4,7 @@ import {
   services,
 } from "@/lib/constants";
 import { siteUrl } from "@/lib/metadata";
+import { getServiceHref } from "@/lib/service-hrefs";
 
 type JsonLdProps = {
   data: Record<string, unknown> | Record<string, unknown>[];
@@ -61,13 +62,47 @@ export function ServicesItemListJsonLd() {
         "@type": "Service",
         name: service.title,
         description: service.description,
-        url: `${siteUrl}/services#${service.id}`,
+        url: `${siteUrl}${getServiceHref(service.id)}`,
         provider: {
           "@type": "MovingCompany",
           name: "Aureon Relocations",
         },
         areaServed: "Abu Dhabi, UAE",
       },
+    })),
+  };
+
+  return <JsonLd data={data} />;
+}
+
+export function WebSiteJsonLd() {
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${siteUrl}/#website`,
+    url: siteUrl,
+    name: "Aureon Relocations",
+    publisher: {
+      "@id": `${siteUrl}/#organization`,
+    },
+  };
+
+  return <JsonLd data={data} />;
+}
+
+export function BreadcrumbListJsonLd({
+  items,
+}: {
+  items: { name: string; path: string }[];
+}) {
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: item.path === "/" ? `${siteUrl}/` : `${siteUrl}${item.path}`,
     })),
   };
 

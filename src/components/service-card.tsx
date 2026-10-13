@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import type { Service } from "@/lib/constants";
+import { getServiceHref } from "@/lib/service-hrefs";
 import { cn } from "@/lib/utils";
 
 type ServiceCardProps = {
@@ -14,7 +15,7 @@ type ServiceCardProps = {
 export function ServiceCard({ service, className }: ServiceCardProps) {
   return (
     <Link
-      href={`/services#${service.id}`}
+      href={getServiceHref(service.id)}
       className={cn(
         "group relative flex flex-col overflow-hidden rounded-lg bg-surface",
         className,

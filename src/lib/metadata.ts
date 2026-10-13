@@ -30,6 +30,16 @@ export function createPageMetadata({
     alternates: {
       canonical: url,
     },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
+    },
     openGraph: {
       title,
       description,
@@ -45,5 +55,15 @@ export function createPageMetadata({
     },
   };
 }
+
+export const rootLayoutMetadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Aureon Relocations | Professional Moving & Relocation Services",
+    template: "%s",
+  },
+  description:
+    "Aureon Relocations provides professional residential, commercial, corporate, and international relocation solutions in Abu Dhabi, UAE.",
+};
 
 export { siteUrl };
