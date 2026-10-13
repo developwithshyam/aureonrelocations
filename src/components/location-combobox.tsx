@@ -7,7 +7,7 @@ import {
   useRef,
   useState,
 } from "react";
-import { gccLocationSuggestions } from "@/lib/constants";
+import { abudhabiLocationSuggestions } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 type LocationComboboxProps = {
@@ -42,8 +42,8 @@ export function LocationCombobox({
 
   const filteredSuggestions = useMemo(() => {
     const query = value.trim().toLowerCase();
-    if (!query) return [...gccLocationSuggestions];
-    return gccLocationSuggestions.filter((location) =>
+    if (!query) return [...abudhabiLocationSuggestions];
+    return abudhabiLocationSuggestions.filter((location) =>
       location.toLowerCase().includes(query),
     );
   }, [value]);
