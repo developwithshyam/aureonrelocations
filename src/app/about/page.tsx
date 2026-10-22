@@ -5,7 +5,6 @@ import { aboutSeo } from "@/lib/seo-content";
 import { Button } from "@/components/button";
 import { FadeIn } from "@/components/fade-in";
 import { LicenseDetails } from "@/components/license-details";
-import { PageBreadcrumbs } from "@/components/page-breadcrumbs";
 import { BreadcrumbListJsonLd } from "@/components/structured-data";
 
 const breadcrumbs = [
@@ -37,7 +36,6 @@ export default function AboutPage() {
         </div>
         <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-20 pt-32 lg:px-8 lg:pb-28">
           <FadeIn>
-            <PageBreadcrumbs items={breadcrumbs} />
             <p className="mb-4 text-xs font-semibold tracking-[0.25em] text-accent uppercase">
               About Aureon
             </p>

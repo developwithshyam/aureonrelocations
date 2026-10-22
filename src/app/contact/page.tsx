@@ -8,7 +8,6 @@ import { ContactInfoCard } from "@/components/contact-info-card";
 import { FaqSection } from "@/components/faq-section";
 import { FadeIn } from "@/components/fade-in";
 import { LicenseDetails } from "@/components/license-details";
-import { PageBreadcrumbs } from "@/components/page-breadcrumbs";
 import {
   BreadcrumbListJsonLd,
   FaqPageJsonLd,
@@ -45,7 +44,6 @@ export default function ContactPage() {
         </div>
         <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-16 pt-32 lg:px-8 lg:pb-20">
           <FadeIn>
-            <PageBreadcrumbs items={breadcrumbs} />
             <h1 className="max-w-3xl text-4xl font-light leading-tight tracking-tight text-white sm:text-5xl md:text-6xl">
               {contactSeo.h1}
             </h1>

@@ -10,7 +10,6 @@ import {
   FaqPageJsonLd,
   ServicesItemListJsonLd,
 } from "@/components/structured-data";
-import { PageBreadcrumbs } from "@/components/page-breadcrumbs";
 import {
   ServiceDetailBlocks,
   ServicesNav,
@@ -48,7 +47,6 @@ export default function ServicesPage() {
         </div>
         <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-20 pt-32 lg:px-8 lg:pb-28">
           <FadeIn>
-            <PageBreadcrumbs items={breadcrumbs} />
             <p className="mb-4 text-xs font-semibold tracking-[0.25em] text-accent uppercase">
               {servicesSeo.eyebrow}
             </p>
