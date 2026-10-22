@@ -26,7 +26,7 @@ export function LocalBusinessJsonLd() {
     "@id": `${siteUrl}/#organization`,
     name: "Aureon Relocations",
     legalName: companyLicense.tradeName,
-    url: siteUrl,
+    url: `${siteUrl}/`,
     email: contactInfo.email,
     telephone: contactInfo.phones[0],
     areaServed: {
@@ -80,7 +80,7 @@ export function WebSiteJsonLd() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "@id": `${siteUrl}/#website`,
-    url: siteUrl,
+    url: `${siteUrl}/`,
     name: "Aureon Relocations",
     publisher: {
       "@id": `${siteUrl}/#organization`,

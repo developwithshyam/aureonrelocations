@@ -5,7 +5,13 @@ import { aboutSeo } from "@/lib/seo-content";
 import { Button } from "@/components/button";
 import { FadeIn } from "@/components/fade-in";
 import { LicenseDetails } from "@/components/license-details";
+import { PageBreadcrumbs } from "@/components/page-breadcrumbs";
 import { BreadcrumbListJsonLd } from "@/components/structured-data";
+
+const breadcrumbs = [
+  { name: "Home", path: "/" },
+  { name: "About", path: "/about" },
+];
 
 export const metadata = createPageMetadata({
   title: aboutSeo.title,
@@ -16,12 +22,7 @@ export const metadata = createPageMetadata({
 export default function AboutPage() {
   return (
     <>
-      <BreadcrumbListJsonLd
-        items={[
-          { name: "Home", path: "/" },
-          { name: "About", path: "/about" },
-        ]}
-      />
+      <BreadcrumbListJsonLd items={breadcrumbs} />
       <section className="relative flex min-h-[70vh] items-end overflow-hidden">
         <div className="absolute inset-0">
           <Image
@@ -36,6 +37,7 @@ export default function AboutPage() {
         </div>
         <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-20 pt-32 lg:px-8 lg:pb-28">
           <FadeIn>
+            <PageBreadcrumbs items={breadcrumbs} />
             <p className="mb-4 text-xs font-semibold tracking-[0.25em] text-accent uppercase">
               About Aureon
             </p>
@@ -175,9 +177,12 @@ export default function AboutPage() {
             <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/70 sm:text-lg">
               {aboutSeo.cta.body}
             </p>
-            <div className="mt-10">
+            <div className="mt-10 flex flex-wrap justify-center gap-4">
               <Button href="/contact" variant="primary">
                 {aboutSeo.cta.button}
+              </Button>
+              <Button href="/services" variant="outline">
+                Our Services
               </Button>
             </div>
           </FadeIn>

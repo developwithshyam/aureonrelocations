@@ -8,6 +8,11 @@ import { homeRelocationFaqs } from "@/lib/home-relocation-content";
 import { createPageMetadata } from "@/lib/metadata";
 import { homeRelocationSeo } from "@/lib/seo-content";
 
+const breadcrumbs = [
+  { name: "Home", path: "/" },
+  { name: "Home Relocation", path: "/home-relocation" },
+];
+
 export const metadata = createPageMetadata({
   title: homeRelocationSeo.title,
   description: homeRelocationSeo.description,
@@ -17,12 +22,7 @@ export const metadata = createPageMetadata({
 export default function HomeRelocationPage() {
   return (
     <>
-      <BreadcrumbListJsonLd
-        items={[
-          { name: "Home", path: "/" },
-          { name: "Home Relocation", path: "/home-relocation" },
-        ]}
-      />
+      <BreadcrumbListJsonLd items={breadcrumbs} />
       <FaqPageJsonLd faqs={homeRelocationFaqs} />
       <HomeRelocationPageContent />
       <FaqSection faqs={homeRelocationFaqs} className="bg-background py-24 lg:py-32" />

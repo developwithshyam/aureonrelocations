@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { services } from "@/lib/constants";
 import { homeSeo } from "@/lib/seo-content";
 import { FadeIn } from "@/components/fade-in";
@@ -25,6 +26,17 @@ export function ServicesGrid() {
             </FadeIn>
           ))}
         </div>
+
+        <FadeIn delay={0.2}>
+          <p className="mt-12 text-center">
+            <Link
+              href="/services"
+              className="text-xs font-semibold uppercase tracking-widest text-accent transition-colors hover:text-accent-hover"
+            >
+              View all services
+            </Link>
+          </p>
+        </FadeIn>
       </div>
     </section>
   );

@@ -1,5 +1,6 @@
 import type { StaticImageData } from "next/image";
 import { homeRelocationImageAsset } from "@/lib/landing-images";
+import { getServiceHref } from "@/lib/service-hrefs";
 
 export const callNowHref = "tel:+971561338182" as const;
 export const displayPhone = "+971 56 133 8182" as const;
@@ -26,16 +27,6 @@ export const footerNavLinks = [
   { label: "Corporate Relocation", href: "/corporate-relocation" },
   { label: "Contact", href: "/contact" },
   { label: "Call Now", href: callNowHref },
-] as const;
-
-export const footerServiceLinks = [
-  { label: "Home", href: "/services#home-relocation" },
-  { label: "Office", href: "/services#office-commercial-relocation" },
-  { label: "Furniture", href: "/services#furniture-moving-transportation" },
-  { label: "Packing", href: "/services#packing-moving-support" },
-  { label: "Assembly", href: "/services#furniture-dismantling-reassembly" },
-  { label: "Storage", href: "/services#warehouse-storage" },
-  { label: "Events", href: "/services#exhibition-event-logistics" },
 ] as const;
 
 export const images = {
@@ -254,6 +245,11 @@ export const services: Service[] = [
     imageAlt: "Exhibition and event logistics in Abu Dhabi",
   },
 ];
+
+export const footerServiceLinks = services.map((service) => ({
+  label: service.shortTitle,
+  href: getServiceHref(service.id),
+}));
 
 export const trustIndicators = [
   "Residential Relocation",

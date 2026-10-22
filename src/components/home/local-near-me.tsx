@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { homeSeo } from "@/lib/seo-content";
 import { FadeIn } from "@/components/fade-in";
 
@@ -14,6 +15,21 @@ export function LocalNearMe() {
           </h2>
           <p className="mt-6 text-base leading-relaxed text-text-secondary sm:text-lg">
             {homeSeo.localBlock.body}
+          </p>
+          <p className="mt-4 text-base leading-relaxed text-text-secondary sm:text-lg">
+            <Link
+              href="/about"
+              className="font-medium text-primary-dark underline decoration-accent/40 underline-offset-4 transition-colors hover:decoration-accent"
+            >
+              About Aureon
+            </Link>
+            {" · "}
+            <Link
+              href="/contact"
+              className="font-medium text-primary-dark underline decoration-accent/40 underline-offset-4 transition-colors hover:decoration-accent"
+            >
+              Get a free quote
+            </Link>
           </p>
         </FadeIn>
       </div>

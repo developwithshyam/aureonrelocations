@@ -22,6 +22,7 @@ import { homeRelocationSeo } from "@/lib/seo-content";
 import { Button } from "@/components/button";
 import { CinematicOverlay } from "@/components/cinematic-overlay";
 import { FadeIn } from "@/components/fade-in";
+import { PageBreadcrumbs } from "@/components/page-breadcrumbs";
 import { QuoteForm } from "@/components/quote-form";
 import { SectionHeading } from "@/components/section-heading";
 import { cn } from "@/lib/utils";
@@ -49,6 +50,12 @@ export function HomeRelocationPageContent() {
         </div>
         <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-20 pt-32 lg:px-8 lg:pb-28">
           <FadeIn>
+            <PageBreadcrumbs
+              items={[
+                { name: "Home", path: "/" },
+                { name: "Home Relocation", path: "/home-relocation" },
+              ]}
+            />
             <p className="mb-4 text-xs font-semibold tracking-[0.25em] text-accent uppercase">
               Home Relocation
             </p>

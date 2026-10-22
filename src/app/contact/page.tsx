@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { images } from "@/lib/constants";
 import { createPageMetadata } from "@/lib/metadata";
 import { contactSeo } from "@/lib/seo-content";
@@ -7,8 +8,16 @@ import { ContactInfoCard } from "@/components/contact-info-card";
 import { FaqSection } from "@/components/faq-section";
 import { FadeIn } from "@/components/fade-in";
 import { LicenseDetails } from "@/components/license-details";
-import { BreadcrumbListJsonLd } from "@/components/structured-data";
-import { siteFaqs } from "@/lib/constants";
+import { PageBreadcrumbs } from "@/components/page-breadcrumbs";
+import {
+  BreadcrumbListJsonLd,
+  FaqPageJsonLd,
+} from "@/components/structured-data";
+
+const breadcrumbs = [
+  { name: "Home", path: "/" },
+  { name: "Contact", path: "/contact" },
+];
 
 export const metadata = createPageMetadata({
   title: contactSeo.title,
@@ -19,12 +28,8 @@ export const metadata = createPageMetadata({
 export default function ContactPage() {
   return (
     <>
-      <BreadcrumbListJsonLd
-        items={[
-          { name: "Home", path: "/" },
-          { name: "Contact", path: "/contact" },
-        ]}
-      />
+      <BreadcrumbListJsonLd items={breadcrumbs} />
+      <FaqPageJsonLd faqs={[...contactSeo.faqs]} />
 
       <section className="relative flex min-h-[50vh] items-end overflow-hidden">
         <div className="absolute inset-0">
@@ -40,6 +45,7 @@ export default function ContactPage() {
         </div>
         <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-16 pt-32 lg:px-8 lg:pb-20">
           <FadeIn>
+            <PageBreadcrumbs items={breadcrumbs} />
             <h1 className="max-w-3xl text-4xl font-light leading-tight tracking-tight text-white sm:text-5xl md:text-6xl">
               {contactSeo.h1}
             </h1>
@@ -49,6 +55,32 @@ export default function ContactPage() {
 
       <section className="py-24 lg:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <FadeIn>
+            <div className="mx-auto mb-12 max-w-3xl lg:mb-16">
+              <h2 className="text-3xl font-light tracking-tight text-primary-dark sm:text-4xl">
+                {contactSeo.intro.heading}
+              </h2>
+              <p className="mt-6 text-base leading-relaxed text-text-secondary sm:text-lg">
+                {contactSeo.intro.body}
+              </p>
+              <p className="mt-4 text-base leading-relaxed text-text-secondary sm:text-lg">
+                <Link
+                  href="/services"
+                  className="font-medium text-primary-dark underline decoration-accent/40 underline-offset-4 transition-colors hover:decoration-accent"
+                >
+                  {contactSeo.intro.servicesLabel}
+                </Link>
+                {" · "}
+                <Link
+                  href="/about"
+                  className="font-medium text-primary-dark underline decoration-accent/40 underline-offset-4 transition-colors hover:decoration-accent"
+                >
+                  {contactSeo.intro.aboutLabel}
+                </Link>
+              </p>
+            </div>
+          </FadeIn>
+
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
             <FadeIn>
               <ContactForm />
@@ -65,7 +97,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <FaqSection faqs={siteFaqs} className="py-24 lg:py-32" />
+      <FaqSection faqs={[...contactSeo.faqs]} />
     </>
   );
 }

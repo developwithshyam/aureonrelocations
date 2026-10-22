@@ -190,6 +190,39 @@ export const contactSeo = {
   description:
     "Looking for movers near me in Abu Dhabi? Affordable, transparent pricing from Aureon. Cheap movers Abu Dhabi — call +971 561338182 or request a free quote.",
   h1: "Movers Near Me in Abu Dhabi — Get a Free Quote",
+  intro: {
+    heading: "Tell us about your move — we’ll reply the same day",
+    body: "Call, WhatsApp, or send the form with your dates, from/to addresses, and what you’re moving. Aureon typically responds the same day with a free, no-obligation quote for homes and businesses across Abu Dhabi.",
+    servicesLabel: "See all moving services",
+    aboutLabel: "Learn about Aureon",
+  },
+  faqs: [
+    {
+      question: "How do I get a free moving quote in Abu Dhabi?",
+      answer:
+        "Use the form on this page, call +971 561338182 or +971 555509390, or email info@aureonrelocations.ae. Share your move date, current and new addresses, and a short list of what you’re moving — Aureon typically replies the same day with a free, itemized estimate.",
+    },
+    {
+      question: "How quickly does Aureon respond to quote requests?",
+      answer:
+        "Most enquiries receive a same-day response during working hours. If you need a callback, include a preferred time in the form and we’ll call you on the number you provide.",
+    },
+    {
+      question: "What details should I include for an accurate quote?",
+      answer:
+        "The more we know, the clearer the quote: property type (apartment, villa, or office), floor and lift access, approximate volume or a room list, fragile or bulky items, and whether you need packing, storage, or assembly. Photos of large pieces help too.",
+    },
+    {
+      question: "Does Aureon serve every area of Abu Dhabi?",
+      answer:
+        "Yes. Aureon Relocations is based in Abu Dhabi and handles residential, commercial, and corporate moves across the city and the wider UAE. If you’re moving between districts or out of Abu Dhabi, include both addresses on the form.",
+    },
+    {
+      question: "Can I book a call instead of using the form?",
+      answer:
+        "Yes. Call +971 561338182 or +971 555509390 if you’d rather talk through the move. You can also review our services and company background first, then request a quote when you’re ready.",
+    },
+  ],
 } as const;
 
 export const homeRelocationSeo = {

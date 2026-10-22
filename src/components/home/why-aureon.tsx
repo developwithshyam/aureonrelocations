@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { images } from "@/lib/constants";
 import { homeSeo } from "@/lib/seo-content";
 import { FadeIn } from "@/components/fade-in";
@@ -14,7 +15,13 @@ export function WhyAureon() {
                 {homeSeo.differentiators.title}
               </h2>
               <p className="mt-6 text-base leading-relaxed text-text-secondary sm:text-lg">
-                {homeSeo.differentiators.intro}
+                {homeSeo.differentiators.intro}{" "}
+                <Link
+                  href="/about"
+                  className="font-medium text-primary-dark underline decoration-accent/40 underline-offset-4 transition-colors hover:decoration-accent"
+                >
+                  Learn more about Aureon
+                </Link>
               </p>
 
               <div className="mt-12 grid gap-8 sm:grid-cols-2">
